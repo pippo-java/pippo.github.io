@@ -9,18 +9,16 @@ Requirements:
 Steps:
 - create a local clone of this repository (with `git clone https://github.com/decebals/pippo-site.git`)
 - go to project's folder (with `cd pippo-site`) 
-- make some modifications
-- test on your computer the modifications (see below section)
+- make some modifications (see below sections)
+- test on your computer the modifications (see below sections)
 - commit and push the modifications on github
 
-Install Jekyll (Ubuntu 12.04 LTS)
+Install Jekyll
 -------------------
-- `sudo apt-get install ruby1.9.3 ruby1.9.1-dev nodejs`
-- `sudo gem install jekyll`
+- [linux](http://antoine-schellenberger.com/linux/2013/11/07/install_jekyll_on_ubuntu_1204.html)
+- [windows](http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html)
 
-Be sure that ruby 1.8 is not installed on your system, if so you have to remove it from the system.
-
-Create a new page
+Create new page
 -------------------
 We are using [jekyll-docs-template](https://github.com/bruth/jekyll-docs-template) to generate the site.
 
@@ -35,12 +33,12 @@ The template follows a very simple convention of defining categories that corres
 Since Jekyll is more geared towards blog posts, specifiying a date and setting up the front-matter can get tedious. Supplied in the `bin` directory is a simple Ruby scripy for creating a new _page_:
 
 ```bash
-ruby bin/jekyll-page title category [filename] [--edit]
+bin/jekyll-page title category [filename] [--edit]
 ```
 
 where `title` is the title of page, `category` is one of the categories defined in the `_config.yml`. By default the `filename` will be derived from the `title`, but you can specify an explicit filename (without the date) by passing the third agument. Finally the `--edit` (or just `-e`) will launch the editor defined by the `$EDITOR` environment variable.
 
-#### Example
+Example:
 
 ```bash
 ./bin/jekyll-page "My New Page" ref
@@ -71,8 +69,16 @@ order: 1
 
 For convenience, a new directory will be created called `_pages` which contains symlinks to the posts without the data prefix, e.g. `2013-04-13-foo.md` &rarr; `foo.md`. This makes it a tad easier when opening files to edit.
 
+Edit page
+-------------------
+Go to `pages` folder and edit the file with your favourite text editor. 
+
 Start the server
 -------------------
+Start the server with: `jekyll serve --watch`
+Open local site with: `http://localhost:4000` 
 
-Start the server with: `jekyll serve &; jekyll build -watch`
+Contributing
+-------------------
 
+Any contribution is welcome. Please fork the repository and submit a Pull Request.
