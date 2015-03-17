@@ -20,7 +20,7 @@ Install Jekyll
 
 Create new page
 -------------------
-We are using [jekyll-docs-template](https://github.com/bruth/jekyll-docs-template) to generate the site.
+We are using [jekyll-docs-template](https://github.com/bruth/jekyll-docs-template) to generate the site. This is  a customized Jekyll project template optimized for flexible, multi-page documentation.  
 
 The template follows a very simple convention of defining categories that correspond to sections in the navigation. Here are the default ones (they are listed in the `_config.yml`):
 
