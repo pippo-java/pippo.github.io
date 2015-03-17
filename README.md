@@ -15,8 +15,8 @@ Steps:
 
 Install Jekyll
 -------------------
-- [linux](http://antoine-schellenberger.com/linux/2013/11/07/install_jekyll_on_ubuntu_1204.html)
-- [windows](http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html)
+- [Linux](http://antoine-schellenberger.com/linux/2013/11/07/install_jekyll_on_ubuntu_1204.html)
+- [Windows](http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html)
 
 Create new page
 -------------------
@@ -33,7 +33,7 @@ The template follows a very simple convention of defining categories that corres
 Since Jekyll is more geared towards blog posts, specifiying a date and setting up the front-matter can get tedious. Supplied in the `bin` directory is a simple Ruby scripy for creating a new _page_:
 
 ```bash
-bin/jekyll-page title category [filename] [--edit]
+./bin/jekyll-page title category [filename] [--edit]
 ```
 
 where `title` is the title of page, `category` is one of the categories defined in the `_config.yml`. By default the `filename` will be derived from the `title`, but you can specify an explicit filename (without the date) by passing the third agument. Finally the `--edit` (or just `-e`) will launch the editor defined by the `$EDITOR` environment variable.
@@ -71,7 +71,7 @@ For convenience, a new directory will be created called `_pages` which contains 
 
 Edit page
 -------------------
-Go to `pages` folder and edit the file with your favourite text editor. 
+Go to `pages` folder and edit the desired file with your favourite text editor. 
 
 Start the server
 -------------------
