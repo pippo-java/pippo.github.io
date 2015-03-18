@@ -75,8 +75,8 @@ Go to `pages` folder and edit the desired file with your favourite text editor.
 
 Start the server
 -------------------
-Start the server with: `jekyll serve --watch`.  
-Open local site with: `http://localhost:4000`. 
+Start the server with: `jekyll serve --watch` 
+Open local site with: `http://localhost:4000` 
 
 Contributing
 -------------------
