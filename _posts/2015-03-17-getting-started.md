@@ -3,54 +3,69 @@ layout: page
 title: "Getting started"
 category: doc
 date: 2015-03-17 17:18:31
-order: 0
+order: 10
 ---
 
-We provide a pippo-demo module that contains many demo applications: SimpleDemo and CrudDemo are some.
+We provide a pippo-demo module that contains many demo applications: pippo-demo-basic and pippo-demo-crud are some.  
+For a list with all demo please see [Demo](demo.html) section.
 
-For SimpleDemo you have two java files: SimpleDemo.java and SimpleApplication.java
+For [pippo-demo-basic]({{ site.demourl }}/pippo-demo-basic) you have two java files: [BasicDemo.java]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/BasicDemo.java) and [BasicApplication.java]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/BasicApplication.java)  
+We split our application in two parts for a better readability.
 
-> **NOTE**
-> Pippo is built using Java 1.7 (and NOT Java 1.8) but we will use lambdas in examples to show shorter code. 
+First we must create a BasicApplication (extends Application) and add some routes:
 
 ```java
-public class SimpleDemo {
-
-    public static void main(String[] args) {
-        Pippo pippo = new Pippo(new SimpleApplication());
-        pippo.start();
-    }
-
-}
-
-public class SimpleApplication extends Application {
+public class BasicApplication extends Application {
 
     @Override
     public void init() {
-        super.init();
+		// send 'Hello World' as response
+        GET("/", (routeContext) -> routeContext.send("Hello World"));
 
-        GET("/", (request, response, chain) -> response.send("Hello World"));
+		// send a file as response
+        GET("/file", (routeContext) -> routeContext.send(new File("pom.xml"));
 
-        GET("/file", (request, response, chain) -> response.file(new File("pom.xml"));
-
-        GET("/json", (request, response, chain) -> {
+        // send a json as response
+        GET("/json", (routeContext) -> {
             Contact contact = new Contact()
-                    .setName("John")
-                    .setPhone("0733434435")
-                    .setAddress("Sunflower Street, No. 6");
+				.setId(12345)
+				.setName("John")
+				.setPhone("0733434435")
+				.setAddress("Sunflower Street, No. 6");
             // you can use variant 1 or 2
-            //response.contentType(HttpConstants.ContentType.APPLICATION_JSON); // 1
-            //response.send(new Gson().toJson(contact)); // 1
-            response.json(contact); // 2
+//            response.contentType(HttpConstants.ContentType.APPLICATION_JSON); // 1
+//            response.send(new Gson().toJson(contact)); // 1
+            routeContext.json().send(contact); // 2
          });
 
-        GET("/template", (request, response, chain) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("greeting", "Hello my friend");
-            response.render("hello", model);
+        // send xml as response
+        GET("/xml", (routeContext) -> {
+			Contact contact = new Contact()
+				.setId(12345)
+				.setName("John")
+				.setPhone("0733434435")
+				.setAddress("Sunflower Street, No. 6");
+			// you can use variant 1 or 2
+//                response.contentType(HttpConstants.ContentType.APPLICATION_XML); // 1
+//                response.send(new Xstream().toXML(contact)); // 1
+			routeContext.xml().send(contact); // 2
         });
-
-        GET("/error", (request, response, chain) -> { throw new RuntimeException("Error"); });
+        
+        // send an object and negotiate the Response content-type, default to XML
+        GET("/negotiate", (routeContext) -> {
+			Contact contact = new Contact()
+				.setId(12345)
+				.setName("John")
+				.setPhone("0733434435")
+				.setAddress("Sunflower Street, No. 6");
+			routeContext.xml().negotiateContentType().send(contact);
+        });
+        
+        // send a template as response
+        GET("/template", (routeContext) -> {
+			routeContext.setLocal("greeting", "Hello");
+			routeContext.render("hello");        
+		});
     }
 
 }
@@ -71,7 +86,26 @@ public class Contact  {
 }
 ```
 
-After run the application, open your internet browser and check the routes declared in Application (`http://localhost:8338/`, 
-`http://localhost:8338/file`, `http://localhost:8338/json`, `http://localhost:8338/error`).
+The last step it's to start Pippo with your application as parameter:
 
+```java
+public class SimpleDemo {
 
+    public static void main(String[] args) {
+        Pippo pippo = new Pippo(new BasicApplication());
+        pippo.start();
+    }
+
+}
+
+```
+
+Pippo launchs the embedded web server (found in your classpath) and makes the application available on port `8338` (default value).
+Open your internet browser and check the routes declared in Application:
+
+ - `http://localhost:8338`
+ - `http://localhost:8338/file`
+ - `http://localhost:8338/json`
+ - `http://localhost:8338/xml`
+ - `http://localhost:8338/negotiate`
+ - `http://localhost:8338/template` 

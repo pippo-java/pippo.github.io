@@ -3,7 +3,7 @@ layout: page
 title: "How to build"
 category: dev
 date: 2015-03-17 18:11:49
-order: 3
+order: 30
 ---
 
 Requirements: 

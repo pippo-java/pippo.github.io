@@ -3,6 +3,7 @@ layout: page
 title: "Runtime mode"
 category: doc
 date: 2015-03-17 17:39:06
+order: 120
 ---
 
 An application can run in three modes: __DEV__(development), __TEST__(testing) and __PROD__(production).

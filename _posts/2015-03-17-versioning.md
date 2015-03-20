@@ -3,7 +3,7 @@ layout: page
 title: "Versioning"
 category: dev
 date: 2015-03-17 17:46:24
-order: 5
+order: 50
 ---
 
 Pippo will be maintained under the Semantic Versioning guidelines as much as possible.

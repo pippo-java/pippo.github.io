@@ -3,7 +3,7 @@ layout: page
 title: "Templates"
 category: doc
 date: 2015-03-17 17:37:21
-order: 2
+order: 40
 ---
 
 Not all applications are REST based and you might need to generate some HTML. 

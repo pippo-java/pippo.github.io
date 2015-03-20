@@ -3,7 +3,7 @@ layout: page
 title: "Controllers"
 category: doc
 date: 2015-03-17 17:51:53
-order: 7
+order: 80
 ---
 
 Another approach to handling a request and producing a response is using Controllers. After routing has determined what controller to use, an action method will be invoked.

@@ -3,7 +3,7 @@ layout: page
 title: "Under the hood"
 category: dev
 date: 2015-03-17 18:02:31
-order: 1
+order: 10
 ---
 
 First, the framework is splits in modules (`pippo-core`, `pippo-jetty`, `pippo-freemarker`, ...) because I want to use only that modules that are usefully for me. For example if I develop a rest like application for a javascript frontend library (angular, ...) I don't want to use a template engine because my application connects to a database and it delivers only json.  

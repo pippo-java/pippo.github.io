@@ -3,7 +3,7 @@ layout: page
 title: "Static files"
 category: doc
 date: 2015-03-17 17:24:53
-order: 2
+order: 20
 ---
 
 Web applications generally need to serve resource files such as images, JavaScript, or CSS. In Pippo, we refer to these files as “static files”.
