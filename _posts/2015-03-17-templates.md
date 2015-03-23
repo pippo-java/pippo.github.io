@@ -7,9 +7,9 @@ order: 40
 ---
 
 Not all applications are REST based and you might need to generate some HTML. 
-It is not productive to inline the HTML in strings in your code and concatenate them at request time. 
-Pippo ships with Freemarker template engine as default and Jade template engine as a builtin alternative. These engines
-are optional and Pippo detect automatically the template engine using __ServiceLocator__.  
+It is not productive to inline the HTML in strings in your code and concatenate them at request time.  
+Pippo ships with Freemarker template engine as default and other engines as a builtin alternatives.  
+These engines are optional and Pippo detects automatically the template engine using __ServiceLocator__.  
 You can set programmatically the desired template engine using `setTemplateEngine(TemplateEngine templateEngine)` from
 __Appplication__.
 
@@ -17,27 +17,31 @@ If you want to add support for other template engine in your application, please
 `ro.pippo.core.TemplateEngine` in _src/main/resources/META-INF/services_ folder with your class name that implements 
 TemplateEngine as content (for Jade the content file is _ro.pippo.jade.JadeTemplateEngine_).  
 
-The `TemplateEngine` interface contains only one method, `public void render(String templateName, Map<String, Object> model, Writer writer)`, 
-that must be implemented by your concrete template engine.
-
-The template engine is uses in `public void render(String templateName, Map<String, Object> model)` and `public void render(String templateName)` 
-from `Response` class.
-
 Bellow is a code snippet about how you can use a template as response to a request:
 
 ```java
-GET("/contact/{id}", (request, response, chain) -> {
-    int id = request.getParameter("id").toInt(0);    
-    String action = request.getParameter("action").toString("new");
+GET("/contact/{id}", (routeContext) -> {
+    int id = routeContext.getParameter("id").toInt(0);    
+    String action = routeContext.getParameter("action").toString("new");
     
     Map<String, Object> model = new HashMap<>();
     model.put("id", id);
     model.put("action", action)
-    response.render("crud/contact", model);
+    routeContext.render("contact", model);
 });
 ```
 
 Don't forget that `locals` variables from a response will be available automatically to all templates for the current request/response cycle.
+So, maybe the shortest version is:
+
+```java
+GET("/contact/{id}", (routeContext) -> {
+	routeContext.setLocal("id", routeContext.getParameter("id").toInt(0));
+	routeContext.setLocal("action", routeContext.getParameter("action").toString("new"));	
+    routeContext.render("contact");
+});
+```
+
  
 For each template engine we expose its configuration. For example __Freemarker__ works with `freemarker.template.Configuration` and __Jade__ works with `de.neuland.jade4j.JadeConfiguration`.  
 In _Application.init_ you can create a new instance for a discovered template engine or you can modify its configuration.

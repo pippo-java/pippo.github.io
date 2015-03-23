@@ -8,7 +8,13 @@ order: 20
 
 Web applications generally need to serve resource files such as images, JavaScript, or CSS. In Pippo, we refer to these files as “static files”.
 
-The easiest way of serving static files is to use the `PublicResourceHandler`, `WebjarsResourceHandler`, & `FileResourceHandler`.
+The easiest way of serving static files is to use:
+
+- [PublicResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/PublicResourceHandler.java)
+- [WebjarsResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/WebjarsResourceHandler.java)
+- [FileResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/FileResourceHandler.java)
+
+For example:
 
 ```java
 Pippo pippo = new Pippo();
@@ -16,11 +22,12 @@ pippo.getApplication().GET(new PublicResourceHandler());
 pippo.getApplication().GET(new WebjarsResourceHandler());
 ```
 
-The CrudDemo is a good application that demonstrates the concept of static files. In pippo-demo/src/main/resources I created a folder __public__ and I put all assets in that folder (imgs, css, js, fonts, ...).
+The [CrudNgDemo]({{ site.demourl }}/pippo-demo-crudng) (demo pippo-angularjs integration) is a good application that demonstrates the concept of static files. 
+In `src/main/resources` we created a folder __public__ and we put all assets in that folder (imgs, css, js, fonts, ...).
 
 ```
-➤ tree pippo-demo/src/main/resources/public
-pippo-demo/src/main/resources/public
+➤ tree src/main/resources/public
+src/main/resources/public
 ├── css
 │   └── style.css
 ├── fonts
@@ -30,9 +37,11 @@ pippo-demo/src/main/resources/public
 3 directories, 2 files
 ```
 
-The CrudDemo uses the Bootstrap framework & Font-Awesome. You can manually copy those resources into your project or you can serve them from the WebJars project using the *WebjarsAt* method appropriate for your template engine.
+The CrudNgDemo uses the [Bootstrap](http://getbootstrap.com/) & [Font-Awesome](http://fortawesome.github.io/Font-Awesome). You can manually copy those resources into your project or you can serve them from the [WebJars](http://www.webjars.org) project using the __webjarsAt__ method appropriate for your template engine.
 
-The CrudDemo also uses a custom CSS file which is a classpath resource from the `/public/` folder.
+The CrudNgDemo also uses a custom CSS file which is a classpath resource from the `/public/` folder.
+
+In this demo, the html template page contains a head section like:
 
 ```html
 <head>
@@ -46,10 +55,29 @@ The CrudDemo also uses a custom CSS file which is a classpath resource from the 
 </head>
 ```
 
+Sure in your pom.xml file (if you use Maven) you must declare the dependencies to these webjars:
+
+```xml
+<!-- Webjars -->
+<dependency>
+	<groupId>org.webjars</groupId>
+	<artifactId>bootstrap</artifactId>
+	<version>3.3.1</version>
+</dependency>
+
+<dependency>
+	<groupId>org.webjars</groupId>
+	<artifactId>font-awesome</artifactId>
+	<version>4.2.0</version>
+</dependency>
+```
+
 If you want to serve static files that are not on the classpath then you may use the `FileResourceHandler`.
 
 ```java
 Pippo pippo = new Pippo();
+// make available some files from a local folder (try a request like 'src/main/resources/simplelogger.properties')
 pippo.getApplication().GET(new FileResourceHandler("/src", "src"));
 ```
 
+From security reason the `FileResourceHandler` doesn't serve resources from outside it's base directory by using relative paths such as `../../../private.txt`.
