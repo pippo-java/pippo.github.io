@@ -13,6 +13,24 @@ These engines are optional and Pippo detects automatically the template engine u
 You can set programmatically the desired template engine using `setTemplateEngine(TemplateEngine templateEngine)` from
 __Appplication__.
 
+Pippo comes (out of the box) with some template engines:
+
+- [Freemarker](http://freemarker.org) `pippo-freemarker`
+- [Jade](https://github.com/neuland/jade4j) `pippo-jade`
+- [Groovy](http://groovy-lang.org/) `pippo-groovy`
+- [Pebble](https://github.com/mbosecke/pebble) `pippo-pebble`
+- [Trimou](https://github.com/trimou/trimou) `pippo-trimou`
+
+To use one of these template engines just add a dependency in your project:
+
+```
+<dependency>
+	<groupId>ro.pippo</groupId>
+	<artifactId>pippo-freemarker</artifactId>
+	<version>${pippo.version}</version>
+</dependency>
+```
+
 If you want to add support for other template engine in your application, please create a new module/project, add file 
 `ro.pippo.core.TemplateEngine` in _src/main/resources/META-INF/services_ folder with your class name that implements 
 TemplateEngine as content (for Jade the content file is _ro.pippo.jade.JadeTemplateEngine_).  

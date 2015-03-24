@@ -6,13 +6,13 @@ date: 2015-03-17 17:18:31
 order: 10
 ---
 
-We provide a pippo-demo module that contains many demo applications: pippo-demo-basic and pippo-demo-crud are some.  
+We provide a pippo-demo module that contains many demo applications (submodules): pippo-demo-basic and pippo-demo-crud are some.  
 For a list with all demo please see [Demo](demo.html) section.
 
 For [pippo-demo-basic]({{ site.demourl }}/pippo-demo-basic) you have two java files: [BasicDemo.java]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/BasicDemo.java) and [BasicApplication.java]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/BasicApplication.java)  
 We split our application in two parts for a better readability.
 
-First we must create a BasicApplication (extends Application) and add some routes:
+First we must create a BasicApplication (extends [Application]({{ site.coreurl }}/src/main/java/ro/pippo/core/Application.java)) and add some routes:
 
 ```java
 public class BasicApplication extends Application {

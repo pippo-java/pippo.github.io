@@ -60,3 +60,4 @@ redcarpet:
 # URL to demo source code
 coreurl: 'https://github.com/decebals/pippo/blob/master/pippo-core'
 demourl: 'https://github.com/decebals/pippo/blob/master/pippo-demo'
+codeurl: 'https://github.com/decebals/pippo/blob/master'

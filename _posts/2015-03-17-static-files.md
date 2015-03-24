@@ -39,9 +39,9 @@ src/main/resources/public
 
 The CrudNgDemo uses the [Bootstrap](http://getbootstrap.com/) & [Font-Awesome](http://fortawesome.github.io/Font-Awesome). You can manually copy those resources into your project or you can serve them from the [WebJars](http://www.webjars.org) project using the __webjarsAt__ method appropriate for your template engine.
 
-The CrudNgDemo also uses a custom CSS file which is a classpath resource from the `/public/` folder.
+The CrudNgDemo also uses a custom CSS file which is a classpath resource from the `/public` folder.
 
-In this demo, the html template page contains a head section like:
+In this demo, the html template page (freemarker engine) contains a head section like:
 
 ```html
 <head>
