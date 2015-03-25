@@ -7,7 +7,7 @@ order: 0
 ---
 
 Another approach to handling a request and producing a response is using Controllers. After routing has determined what controller to use, an action method will be invoked.
-In Pippo, controllers are instances of `Controller`.
+In Pippo, controllers are instances of [Controller]({{ site.codeurl }}/pippo-controller/src/main/java/ro/pippo/controller/Controller.java).
 
 Defining a new controller is simple:
 
@@ -15,13 +15,13 @@ Defining a new controller is simple:
 public class ContactsController extends Controller {
 
     public void index() {
-        getResponse().render("crud/contacts");
+		List<Contact> contacts = contactService.getContacts();
+		getResponse().bind("contacts", contacts).render("contacts");
     }
     
     public void getContact(@Param("id") int id) {
-        Contact contact = MyApplication.get().getContactService().get(id);
-        getResponse().bind("contact", contact);
-        getResponse().render("crud/contact");
+        Contact contact = contactService.getContact(id);
+        getResponse().bind("contact", contact).render(contact);
     }
 
 }
@@ -36,9 +36,11 @@ public class ControllerDemo {
     public static void main(String[] args) {
         Pippo pippo = new Pippo();
         pippo.getApplication().GET("/", ContactsController.class, "index");
-        pippo.getApplication().GET("/contact/{id: [0-9]+}", ContactsController.class, "getContact");
+        pippo.getApplication().GET("/contact/{id}", ContactsController.class, "getContact");
         pippo.start();
     }
 
 }
 ```
+
+You can see a demo [here]({{ site.demourl }}/pippo-demo-controller)

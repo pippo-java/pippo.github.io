@@ -27,37 +27,18 @@ public class BasicApplication extends Application {
 
         // send a json as response
         GET("/json", (routeContext) -> {
-            Contact contact = new Contact()
-				.setId(12345)
-				.setName("John")
-				.setPhone("0733434435")
-				.setAddress("Sunflower Street, No. 6");
-            // you can use variant 1 or 2
-//            response.contentType(HttpConstants.ContentType.APPLICATION_JSON); // 1
-//            response.send(new Gson().toJson(contact)); // 1
-            routeContext.json().send(contact); // 2
-         });
+			Contact contact = createContact();
+			routeContext.json().send(contact);
+        });
 
         // send xml as response
         GET("/xml", (routeContext) -> {
-			Contact contact = new Contact()
-				.setId(12345)
-				.setName("John")
-				.setPhone("0733434435")
-				.setAddress("Sunflower Street, No. 6");
-			// you can use variant 1 or 2
-//                response.contentType(HttpConstants.ContentType.APPLICATION_XML); // 1
-//                response.send(new Xstream().toXML(contact)); // 1
-			routeContext.xml().send(contact); // 2
+			Contact contact = createContact();
+			routeContext.xml().send(contact);
         });
         
         // send an object and negotiate the Response content-type, default to XML
         GET("/negotiate", (routeContext) -> {
-			Contact contact = new Contact()
-				.setId(12345)
-				.setName("John")
-				.setPhone("0733434435")
-				.setAddress("Sunflower Street, No. 6");
 			routeContext.xml().negotiateContentType().send(contact);
         });
         
@@ -68,6 +49,14 @@ public class BasicApplication extends Application {
 		});
     }
 
+	private Contact createContact() {
+		return new Contact()
+			.setId(12345)
+			.setName("John")
+			.setPhone("0733434435")
+			.setAddress("Sunflower Street, No. 6");	
+	}
+	
 }
 ``` 
 
