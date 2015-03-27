@@ -3,7 +3,7 @@ layout: page
 title: "Modularity"
 category: doc
 date: 2015-03-17 17:48:14
-order: 70
+order: 120
 ---
 
 Pippo was designed since the first version with the modularity in mind. Many aspects (extension points) of this framework can be changed:

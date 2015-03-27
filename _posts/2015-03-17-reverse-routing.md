@@ -3,7 +3,7 @@ layout: page
 title: "Reverse routing"
 category: doc
 date: 2015-03-17 18:00:00
-order: 90
+order: 110
 ---
 
 Reverse routing is a feature in Pippo that is used to allow you to easily change your URL structure without having to modify all your code.  
