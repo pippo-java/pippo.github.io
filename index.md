@@ -17,5 +17,4 @@ The core is small (around 100k) and I intend to keep this module as small/simple
 
 The framework is based on Java Servlet 3.0 and requires Java 7. 
 
-> **NOTE**
-> Pippo is built using Java 1.7 (and NOT Java 1.8) but we will use lambdas in examples to show shorter code. 
+**Note:** Pippo is built using Java 1.7 (and NOT Java 1.8) but we will use lambdas in examples to show shorter code. 

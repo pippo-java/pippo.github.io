@@ -15,11 +15,11 @@ __Appplication__.
 
 Pippo comes (out of the box) with some template engines:
 
-- [Freemarker](http://freemarker.org) `pippo-freemarker`
-- [Jade](https://github.com/neuland/jade4j) `pippo-jade`
-- [Groovy](http://groovy-lang.org/) `pippo-groovy`
-- [Pebble](https://github.com/mbosecke/pebble) `pippo-pebble`
-- [Trimou](https://github.com/trimou/trimou) `pippo-trimou`
+- [Freemarker](/doc/templates/freemarker.html) `pippo-freemarker`
+- [Jade](/doc/templates/jade.html) `pippo-jade`
+- [Groovy](/doc/templates/groovy.html) `pippo-groovy`
+- [Pebble](/doc/templates/pebble.html) `pippo-pebble`
+- [Trimou](/doc/templates/trimou.html) `pippo-trimou`
 
 To use one of these template engines just add a dependency in your project:
 
