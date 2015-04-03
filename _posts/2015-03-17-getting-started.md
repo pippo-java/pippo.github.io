@@ -98,3 +98,5 @@ Open your internet browser and check the routes declared in Application:
  - `http://localhost:8338/xml`
  - `http://localhost:8338/negotiate`
  - `http://localhost:8338/template` 
+ 
+For a detailed overview please see section [Under the hood](/dev/under-the-hood.html).
