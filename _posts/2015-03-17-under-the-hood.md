@@ -178,8 +178,6 @@ public class MyApplication extends Application {
 
     @Override
     public void init() {
-        super.init();
-
         GET("/", (routeContext) -> routeContext.send("Hello World"));        
     }
 
