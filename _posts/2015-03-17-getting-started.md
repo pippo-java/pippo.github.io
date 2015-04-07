@@ -70,7 +70,7 @@ public class Contact  {
     private String phone;
     private String address;
     
-    // getters ans setters
+    // getters and setters
 
 }
 ```
@@ -78,7 +78,7 @@ public class Contact  {
 The last step it's to start Pippo with your application as parameter:
 
 ```java
-public class SimpleDemo {
+public class BasicDemo {
 
     public static void main(String[] args) {
         Pippo pippo = new Pippo(new BasicApplication());
@@ -89,7 +89,7 @@ public class SimpleDemo {
 
 ```
 
-Pippo launchs the embedded web server (found in your classpath) and makes the application available on port `8338` (default value).
+Pippo launches the embedded web server (found in your classpath) and makes the application available on port `8338` (default value).
 Open your internet browser and check the routes declared in Application:
 
  - `http://localhost:8338`
