@@ -15,7 +15,7 @@ google_analytics_id: 'UA-60911767-1'
 navigation: 2
 
 # URL to source code, used in _includes/footer.html
-codeurl: 'https://github.com/decebals/pippo'
+projecturl: 'https://github.com/decebals/pippo'
 
 # Default categories (in order) to appear in the navigation
 sections: [
