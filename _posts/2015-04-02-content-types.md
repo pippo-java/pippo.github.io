@@ -75,7 +75,7 @@ Below is an example how to send an xml:
 public class BasicApplication extends Application {
 
     @Override
-    public void init() {
+    protected void onInit() {
         // send xml as response
         GET("/xml", (routeContext) -> {
 			Contact contact = createContact();
@@ -106,7 +106,7 @@ See below an example related to content type negotiation:
 public class BasicApplication extends Application {
 
     @Override
-    public void init() {
+    protected void onInit() {
         // send an object and negotiate the Response content-type, default to XML
         GET("/negotiate", (routeContext) -> {
 			Contact contact = createContact();

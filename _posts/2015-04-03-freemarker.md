@@ -82,7 +82,7 @@ pippo-freemarker supports context-aware url generation for your classpath resour
 public class MyApplication extends Application {
 
 	@Override
-    public void init() {
+    protected void onInit() {
         // add classpath resource handlers
         GET(new WebjarsResourceHandler());
         GET(new PublicResourceHandler());

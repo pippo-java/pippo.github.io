@@ -177,7 +177,7 @@ public class MyDemo {
 public class MyApplication extends Application {
 
     @Override
-    public void init() {
+    protected void onInit() {
         GET("/", (routeContext) -> routeContext.send("Hello World"));        
     }
 

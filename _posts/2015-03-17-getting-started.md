@@ -18,7 +18,7 @@ First we must create a BasicApplication (extends [Application]({{ site.coreurl }
 public class BasicApplication extends Application {
 
     @Override
-    public void init() {
+    protected void onInit() {
 		// send 'Hello World' as response
         GET("/", (routeContext) -> routeContext.send("Hello World"));
 

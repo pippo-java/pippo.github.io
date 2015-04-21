@@ -68,9 +68,7 @@ In _Application.init_ you can create a new instance for a discovered template en
 public class CrudApplication extends Application {
 
    @Override
-   public void init() {
-      super.init();
-
+   protected void onInit() {
       FreemarkerTemplateEngine templateEngine = new FreemarkerTemplateEngine();
       try {
          templateEngine.getConfiguration().setDirectoryForTemplateLoading(new File("src/main/resources/templates/"));
@@ -91,9 +89,7 @@ or
 public class CrudApplication extends Application {
 
    @Override
-   public void init() {
-      super.init();
-
+   protected void onInit() {
       Configuration configuration = ((FreemarkerTemplateEngine) templateEngine).getConfiguration();
       try {
          configuration.setDirectoryForTemplateLoading(new File("src/main/resources/templates/"));
