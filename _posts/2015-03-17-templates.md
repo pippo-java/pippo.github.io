@@ -62,7 +62,7 @@ GET("/contact/{id}", (routeContext) -> {
 
  
 For each template engine we expose its configuration. For example __Freemarker__ works with `freemarker.template.Configuration` and __Jade__ works with `de.neuland.jade4j.JadeConfiguration`.  
-In _Application.init_ you can create a new instance for a discovered template engine or you can modify its configuration.
+In _Application.onInit_ you can create a new instance for a discovered template engine or you can modify its configuration.
 
 ```java
 public class CrudApplication extends Application {

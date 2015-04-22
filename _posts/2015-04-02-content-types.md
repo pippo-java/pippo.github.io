@@ -48,7 +48,7 @@ public class XstreamEngine implements ContentTypeEngine {
 
 To register a content type engine in your application you have two options:
 
-- add programatically the content type engine in `Application.init()` with `Application.registerContentTypeEngine(XstreamEngine.class)`
+- add programatically the content type engine in `Application.onInit()` with `Application.registerContentTypeEngine(XstreamEngine.class)`
 - create an [Initializer]({{ site.coreurl }}/src/main/java/ro/pippo/core/Initializer.java) in your project that register the content type engine
 
 For above _XstreamEngine_ we can create an _XstreamInitializer_ with this possible content: 
