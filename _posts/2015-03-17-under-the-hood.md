@@ -33,58 +33,9 @@ If you want to extend Pippo (create new module, modify some default behaviors) y
 - ServiceLocator
 - Initializer
 
-The easy mode to run your application si to use [Pippo]({{ site.coreurl }}/src/main/java/ro/pippo/core/Pippo.java) wrapper class.  
+The easy mode to run your application is to use [Pippo]({{ site.coreurl }}/src/main/java/ro/pippo/core/Pippo.java) wrapper class.  
 
-[Route]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/Route.java) are URL schema, which describe the interfaces for making requests to your web application. Combining an HTTP request method (a.k.a. HTTP verb) and a path pattern, you define URLs in your application.  
-Each route has an associated [RouteHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/RouteHandler.java), which does the job of performing any action in the application and sending the HTTP response.  
-Routes are defined using an HTTP verb and a path pattern. Any request to the server that matches a route definition is routed to the associated route handler.
-
-```java
-GET("/", new RouteHandler() {
-
-    @Override
-    public void handle(RouteContext routeContext) {
-        routeContext.send("Hello World");
-    }
-
-});
-
-// or more concise using Java 8 lambdas
-
-GET("/", (routeContext) -> routeContext.send("Hello World"));
-```
-
-Routes in Pippo are created using methods named after HTTP verbs. For instance, in the previous example, we created a route to handle GET requests to the root of the website. You have a corresponding method in Application for all commonly used HTTP verbs (GET, POST, DELETE, HEAD, PUT). For a basic website, only GET and POST are likely to be used.
-
-The route that is defined first takes precedence over other matching routes. So the ordering of routes is crucial to the behavior of an application.   
-
-Each defined route has an __urlPattern__.
-The route can be static or dynamic:
-
-- `static` ("/", "/hello", "/contacts/1")
-- `dynamic` (regex: "/.*" or parameterized: "/contact/{id}", "/contact/{id: [0-9]+}")
-
-As you can see, it's easy to create routes with parameters. A parameter is wrapped by curly braces `{name}` and can optionally specify a regular expression. 
-
-You can retrieve the path parameter value for a request in type safe mode using:
-
-```java
-GET("/contact/{id}", (routeContext) -> {
-    int id = routeContext.getParameter("id").toInt(0);    
-    String action = routeContext.getParameter("action").toString("new");
-    
-    Map<String, Object> model = new HashMap<>();
-    model.put("id", id);
-    model.put("action", action)
-    routeContext.render("contact", model);
-});
-```
-
-If you want to be more riguros you can use something like:
-
-```java
-GET("/contact/{id: [0-9]+}", (routeContext) -> { ... });
-```
+The `Route` concept was described [here]({{site.url}}/doc/routes.html).
 
 The [Response]({{ site.coreurl }}/src/main/java/ro/pippo/core/Response.java) is a wrapper over [HttpServletResponse](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/http/HttpServletResponse.html) from servlet API and it provides functionality for modifying the response. You can send a char sequence with `send` method, or a file with `file` method, or a json with `json` method, or a xml with `xml` method. Also you can send a template file merged with a model using `render` method.  
 
