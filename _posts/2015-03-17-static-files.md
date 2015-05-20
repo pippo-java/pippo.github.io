@@ -13,6 +13,7 @@ The easiest way of serving static files is to use:
 - [PublicResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/PublicResourceHandler.java)
 - [WebjarsResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/WebjarsResourceHandler.java)
 - [FileResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/FileResourceHandler.java)
+- [ClasspathResourceHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/ClasspathResourceHandler.java)
 
 For example:
 
@@ -21,6 +22,8 @@ Pippo pippo = new Pippo();
 pippo.getApplication().GET(new PublicResourceHandler());
 pippo.getApplication().GET(new WebjarsResourceHandler());
 ```
+
+You can use multiple `FileResourceHandler` but it is nonsense to use more `PublicResourceHandler` or more `WebjarsResourceHandler`.  
 
 The [CrudNgDemo]({{ site.demourl }}/pippo-demo-crudng) (demo pippo-angularjs integration) is a good application that demonstrates the concept of static files. 
 In `src/main/resources` we created a folder __public__ and we put all assets in that folder (imgs, css, js, fonts, ...).
