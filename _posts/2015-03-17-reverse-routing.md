@@ -44,5 +44,7 @@ parameters.put("action", "new");
 String url = routeContext.uriFor("/contacts/{id}", parameters);
 ```
 
+By default (via `DefaultRouter`) the `uriFor` method automatically encode the parameters values.
+
 In conclusion if you want to create links to routes or controllers you must use `Router.uriFor` methods.
 
