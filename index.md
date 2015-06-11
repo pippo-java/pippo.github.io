@@ -20,4 +20,4 @@ Also, Pippo comes with a very small footprint that makes it excellent for embedd
  
 The framework is based on Java Servlet 3.0 and requires Java 7. 
 
-**Note:** Pippo is built using Java 1.7 (and NOT Java 1.8) but we will use lambdas in examples to show shorter code. 
+**Note:** Pippo is built using Java 1.7 but we use lambdas in examples to show shorter code. Of course if your project is build with Java 1.8 you can use lambdas also. 
