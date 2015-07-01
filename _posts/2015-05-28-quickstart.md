@@ -16,7 +16,7 @@ Creating a quickstart provides only a very basic starting point for your Pippo p
 
 To create your project you must follow these steps:
 
-- install [pippo-quickstart]({{ projecturl }}/maven-archetypes/quickstart) archetype on your computer (this step is **OPTIONAL**; the archetype is also available on Maven Central Repository):
+- install [pippo-quickstart](https://github.com/decebals/pippo/tree/master/maven-archetypes/quickstart) archetype on your computer (this step is **OPTIONAL**; the archetype is also available on Maven Central Repository):
 
 ```
 cd <PIPPO_HOME>/maven-archetypes/quickstart
