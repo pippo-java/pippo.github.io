@@ -44,7 +44,40 @@ parameters.put("action", "new");
 String url = routeContext.uriFor("/contacts/{id}", parameters);
 ```
 
-By default (via `DefaultRouter`) the `uriFor` method automatically encode the parameters values.
+Are some scenarios when it's more ease to use the route name for `uriFor()`.  
+In few words I can add a route (in an hypothetical blog application) that render a template with:
+
+```java
+GET("/blogs/{year}/{month}/{day}/{title}", (routeContext) -> { routeContext.render("myTemplate")});
+```
+
+It's hard to create the reverse routing using the `uriPattern`:
+
+```java
+Map<String, Object> parameters = ...
+routeContext.uriFor("/blogs/{year}/{month}/{day}/{title}", parameters);
+```
+
+The simplest solution is to add a `name` to our route and to use this name when we build the URL(reverse routing) to that route:
+
+```java
+GET("/blogs/{year}/{month}/{day}/{title}", (routeContext) -> { routeContext.render("myTemplate")}).named("blog");
+```
+
+The new code becomes more short and readable:
+
+```java
+Map<String, Object> parameters = ...
+routeContext.uriFor("blog", parameters);
+```
+
+Advantages:
+
+- it is often more descriptive than hard-coding the `uriPattern`
+- it allows you to change `uriPattern` in one go, without having to remember to change URLs all over the place.
+
+
+**Note:** By default (via `DefaultRouter`) the `uriFor` method automatically encode the parameters values.
 
 In conclusion if you want to create links to routes or controllers you must use `Router.uriFor` methods.
 
