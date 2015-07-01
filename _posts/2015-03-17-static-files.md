@@ -27,8 +27,8 @@ or more verbose:
 
 ```java
 Pippo pippo = new Pippo();
-pippo.getApplication().addResourceRoute(new PublicResourceRoute());
-pippo.getApplication().addResourceRoute(new WebjarsResourceRoute());
+pippo.getApplication().addResourceRoute(new PublicResourceHandler());
+pippo.getApplication().addResourceRoute(new WebjarsResourceHandler());
 ```
 
 You can use multiple `FileResourceRoute` but it is nonsense to use more `PublicResourceRoute` or more `WebjarsResourceRoute`.  
