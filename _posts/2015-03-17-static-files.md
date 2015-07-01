@@ -19,11 +19,19 @@ For example:
 
 ```java
 Pippo pippo = new Pippo();
-pippo.getApplication().GET(new PublicResourceHandler());
-pippo.getApplication().GET(new WebjarsResourceHandler());
+pippo.getApplication().addPublicResourceRoute();
+pippo.getApplication().addWebjarsResourceRoute();
 ```
 
-You can use multiple `FileResourceHandler` but it is nonsense to use more `PublicResourceHandler` or more `WebjarsResourceHandler`.  
+or more verbose:
+
+```java
+Pippo pippo = new Pippo();
+pippo.getApplication().addResourceRoute(new PublicResourceRoute());
+pippo.getApplication().addResourceRoute(new WebjarsResourceRoute());
+```
+
+You can use multiple `FileResourceRoute` but it is nonsense to use more `PublicResourceRoute` or more `WebjarsResourceRoute`.  
 
 The [CrudNgDemo]({{ site.demourl }}/pippo-demo-crudng) (demo pippo-angularjs integration) is a good application that demonstrates the concept of static files. 
 In `src/main/resources` we created a folder __public__ and we put all assets in that folder (imgs, css, js, fonts, ...).
@@ -75,12 +83,12 @@ Sure in your pom.xml file (if you use Maven) you must declare the dependencies t
 </dependency>
 ```
 
-If you want to serve static files that are not on the classpath then you may use the `FileResourceHandler`.
+If you want to serve static files that are not on the classpath then you may use the `FileResourceRoute`.
 
 ```java
 Pippo pippo = new Pippo();
 // make available some files from a local folder (try a request like 'src/main/resources/simplelogger.properties')
-pippo.getApplication().GET(new FileResourceHandler("/src", "src"));
+pippo.getApplication().addFileResourceRoute("/src", "src");
 ```
 
-From security reason the `FileResourceHandler` doesn't serve resources from outside it's base directory by using relative paths such as `../../../private.txt`.
+From security reason the `FileResourceRoute` doesn't serve resources from outside it's base directory by using relative paths such as `../../../private.txt`.

@@ -76,16 +76,16 @@ pippo-freemarker supports context-aware url generation for your classpath resour
 <script src="${publicAt('js/main.js')}"></script>
 ```
 
-**NOTE:** Use of these methods require that you have registered a `WebjarsResourceHandler` and/or a `PublicResourcehandler`.
+**NOTE:** Use of these methods require that you have registered a `WebjarsResourceRoute` and/or a `PublicResourceRoute`.
 
 ```java
 public class MyApplication extends Application {
 
 	@Override
     protected void onInit() {
-        // add classpath resource handlers
-        GET(new WebjarsResourceHandler());
-        GET(new PublicResourceHandler());
+		// add routes for static content
+        addPublicResourceRoute();
+        addWebjarsResourceRoute();
         ...
     }
     
