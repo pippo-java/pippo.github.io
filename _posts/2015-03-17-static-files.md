@@ -60,9 +60,18 @@ In this demo, the html template page (freemarker engine) contains a head section
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="${webjarsAt('bootstrap/3.3.1/css/bootstrap.min.css')}" rel="stylesheet">
-    <link href="${webjarsAt('font-awesome/4.2.0/css/font-awesome.min.css')}" rel="stylesheet">
+    <link href="${webjarsAt('bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
+    <link href="${webjarsAt('font-awesome/css/font-awesome.min.css')}" rel="stylesheet">
     <link href="${publicAt('css/style.css')}" rel="stylesheet">
+</head>
+```
+
+If you want to have more control over webjars artifact version you can use this declaration:
+
+```html
+<head>
+	<link href="${webjarsAt('bootstrap/3.3.1/css/bootstrap.min.css')}" rel="stylesheet">
+	<link href="${webjarsAt('font-awesome/4.2.0/css/font-awesome.min.css')}" rel="stylesheet">
 </head>
 ```
 
