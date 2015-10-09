@@ -12,9 +12,9 @@ To resolve these situations Pippo comes with a nice concept [ContentTypeEngine](
 Pippo comes bultin (direct or via modules) with the following content type engines:
 
 - plain text ([TextPlainEngine]({{ site.coreurl }}/src/main/java/ro/pippo/core/TextPlainEngine.java))
-- xml ([JaxbEngine]({{ site.coreurl }}/src/main/java/ro/pippo/core/JaxbEngine.java), [XstreamEngine]({{ site.codeurl }}/pippo-xstream/src/main/java/ro/pippo/xstream/XstreamEngine.java)), [JacksonXmlEngine]({{ site.codeurl }}/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonXmlEngine.java))
+- xml ([JaxbEngine]({{ site.coreurl }}/src/main/java/ro/pippo/core/JaxbEngine.java), [XstreamEngine]({{ site.codeurl }}/pippo-xstream/src/main/java/ro/pippo/xstream/XstreamEngine.java), [JacksonXmlEngine]({{ site.codeurl }}/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonXmlEngine.java))
 - json ([GsonEngine]({{ site.codeurl }}/pippo-gson/src/main/java/ro/pippo/gson/GsonEngine.java), [FastjsonEngine]({{ site.codeurl }}/pippo-fastjson/src/main/java/ro/pippo/fastjson/FastjsonEngine.java), [JacksonJsonEngine]({{ site.codeurl }}/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonJsonEngine.java))
-- yaml ([SnakeYamlEngine]({{ site.codeurl }}/pippo-snakeyaml/src/main/java/ro/pippo/snakeyaml/SnakeYamlEngine.java)), [JacksonYamlEngine]({{ site.codeurl }}/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonYamlEngine.java))
+- yaml ([SnakeYamlEngine]({{ site.codeurl }}/pippo-snakeyaml/src/main/java/ro/pippo/snakeyaml/SnakeYamlEngine.java), [JacksonYamlEngine]({{ site.codeurl }}/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonYamlEngine.java))
 
 If you want to develop a new engine of content type you can do it very easily. All you have to do is to implement ContentTypeEngine.  
 
