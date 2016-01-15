@@ -21,8 +21,8 @@ projecturl: 'https://github.com/decebals/pippo'
 sections: [
     ['doc', 'Documentation'],
     ['tut', 'Tutorial'],
+    ['mod', 'Modules'],	
     ['ref', 'Reference'],
-	['mod', 'Modules'],	
     ['dev', 'Developers'],
     ['post', 'Posts']
 ]
