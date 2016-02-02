@@ -18,6 +18,4 @@ You are not forced to use a specific template engine or an embedded web server. 
 
 Also, Pippo comes with a very small footprint that makes it excellent for embedded devices (Raspberry PI for example).  
  
-The framework is based on Java Servlet 3.0 and requires Java 7. 
-
-**Note:** Pippo is built using Java 1.7 but if your project is build with Java 1.8 you can use lambdas. We use lambdas in examples to show shorter code.
+The framework is based on Java Servlet 3.0 and requires Java 8.
