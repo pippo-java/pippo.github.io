@@ -86,7 +86,6 @@ public class BasicDemo {
     }
 
 }
-
 ```
 
 Pippo launches the embedded web server (found in your classpath) and makes the application available on port `8338` (default value).

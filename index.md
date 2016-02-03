@@ -19,3 +19,70 @@ You are not forced to use a specific template engine or an embedded web server. 
 Also, Pippo comes with a very small footprint that makes it excellent for embedded devices (Raspberry PI for example).  
  
 The framework is based on Java Servlet 3.0 and requires Java 8.
+
+<br>
+   
+**Talk is cheap. Show me the code.**
+
+1) Add some routes in your application
+
+```java
+public class BasicApplication extends Application {
+
+    @Override
+    protected void onInit() {
+		// send 'Hello World' as response
+        GET("/", (routeContext) -> routeContext.send("Hello World"));
+
+		// send a file as response
+        GET("/file", (routeContext) -> routeContext.send(new File("pom.xml"));
+
+        // send a json as response
+        GET("/json", (routeContext) -> {
+			Contact contact = createContact();
+			routeContext.json().send(contact);
+        });
+
+        // send xml as response
+        GET("/xml", (routeContext) -> {
+			Contact contact = createContact();
+			routeContext.xml().send(contact);
+        });
+        
+        // send an object and negotiate the Response content-type, default to XML
+        GET("/negotiate", (routeContext) -> {
+			routeContext.xml().negotiateContentType().send(contact);
+        });
+        
+        // send a template as response
+        GET("/template", (routeContext) -> {
+			routeContext.setLocal("greeting", "Hello");
+			routeContext.render("hello");        
+		});
+    }
+
+	private Contact createContact() {
+		return new Contact()
+			.setId(12345)
+			.setName("John")
+			.setPhone("0733434435")
+			.setAddress("Sunflower Street, No. 6");	
+	}
+	
+}
+``` 
+
+2) Start your application
+
+```java
+public class BasicDemo {
+
+    public static void main(String[] args) {
+        Pippo pippo = new Pippo(new BasicApplication());
+        pippo.start();
+    }
+
+}
+```
+
+See [Getting started](/doc/getting-started.html) section for some basic information.
