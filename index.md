@@ -51,6 +51,7 @@ public class BasicApplication extends Application {
         
         // send an object and negotiate the Response content-type, default to XML
         GET("/negotiate", (routeContext) -> {
+        		Contact contact = createContact();
 			routeContext.xml().negotiateContentType().send(contact);
         });
         
