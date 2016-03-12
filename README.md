@@ -1,4 +1,4 @@
-[Pippo](http://pippo.ro) site repository
+[Pippo](http://pippo.ro) site repository.
 
 How to build
 -------------------
