@@ -50,4 +50,4 @@ addResourceRoute(new SassResourceHandler("/sasscss", "public/sass"));
 ```
 where `/sasscss` will be the context path that for the sass folder files.
 
-Mixin both sass and less in your project is possible as you can see in the [demo](https://github.com/decebals/pippo/tree/master/pippo-demo/pippo-demo-css).
+Mixin both sass and less in your project is possible as you can see in the [demo](https://github.com/decebals/pippo-demo/tree/master/pippo-demo-css).
