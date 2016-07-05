@@ -7,7 +7,7 @@ order: 0
 ---
 
 Another approach to handling a request and producing a response is using Controllers. After routing has determined what controller to use, an action method will be invoked.
-In Pippo, controllers are instances of [Controller]({{ site.codeurl }}/pippo-controller/src/main/java/ro/pippo/controller/Controller.java).
+In Pippo, controllers are instances of [Controller]({{ site.codeurl }}/pippo-controller-parent/pippo-controller/src/main/java/ro/pippo/controller/Controller.java).
 
 Defining a new controller is simple:
 
