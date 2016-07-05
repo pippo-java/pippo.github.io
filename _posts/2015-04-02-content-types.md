@@ -12,7 +12,7 @@ To resolve these situations Pippo comes with a nice concept [ContentTypeEngine](
 Pippo comes bultin (direct or via modules) with the following content type engines:
 
 - plain text ([TextPlainEngine]({{ site.coreurl }}/src/main/java/ro/pippo/core/TextPlainEngine.java))
-- xml ([JaxbEngine]({{ site.coreurl }}/pippo-content-type-parent/pippo-jaxb/src/main/java/ro/pippo/jaxb/JaxbEngine.java), [XstreamEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-xstream/src/main/java/ro/pippo/xstream/XstreamEngine.java), [JacksonXmlEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonXmlEngine.java))
+- xml ([JaxbEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-jaxb/src/main/java/ro/pippo/jaxb/JaxbEngine.java), [XstreamEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-xstream/src/main/java/ro/pippo/xstream/XstreamEngine.java), [JacksonXmlEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonXmlEngine.java))
 - json ([GsonEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-gson/src/main/java/ro/pippo/gson/GsonEngine.java), [FastjsonEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-fastjson/src/main/java/ro/pippo/fastjson/FastjsonEngine.java), [JacksonJsonEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonJsonEngine.java))
 - yaml ([SnakeYamlEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-snakeyaml/src/main/java/ro/pippo/snakeyaml/SnakeYamlEngine.java), [JacksonYamlEngine]({{ site.codeurl }}/pippo-content-type-parent/pippo-jackson/src/main/java/ro/pippo/jackson/JacksonYamlEngine.java))
 
