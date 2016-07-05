@@ -23,7 +23,7 @@ To improve the modularity mechanism, we added the concept of [Initializer]({{ si
 When Pippo starts up an application, it scans the classpath roots, looking for files named `pippo.properties`. It reads 
 every pippo.properties file it finds, and it instantiates and execute the initializers defined in those files. 
 
-To demonstrate the initializer concept I added a dump [FreemarkerInitializer]({{ site.codeurl }}/pippo-freemarker/src/main/java/ro/pippo/freemarker/FreemarkerInitializer.java) in pippo-freemarker module. In our example, 
+To demonstrate the initializer concept I added a dump [FreemarkerInitializer]({{ site.codeurl }}/pippo-template-parent/pippo-freemarker/src/main/java/ro/pippo/freemarker/FreemarkerInitializer.java) in pippo-freemarker module. In our example, 
 the [pippo.properties]({{ site.codeurl }}/pippo-freemarker/src/main/resources/pippo.properties) file (which should be packaged in the root of the classpath) contains only one line:
 
 ```properties
