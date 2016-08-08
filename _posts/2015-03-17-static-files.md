@@ -100,4 +100,4 @@ Pippo pippo = new Pippo();
 pippo.getApplication().addFileResourceRoute("/src", "src");
 ```
 
-From security reason the `FileResourceRoute` doesn't serve resources from outside it's base directory by using relative paths such as `../../../private.txt`.
+For security reasons, the `FileResourceRoute` doesn't serve resources from outside its base directory by using relative paths such as `../../../private.txt`.
