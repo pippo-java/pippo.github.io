@@ -20,19 +20,16 @@ We chose the Service Loader mechanism from Java as built in modules system in Pi
 You can create a modular application using [ServiceLocator]({{ site.coreurl }}/src/main/java/ro/pippo/core/util/ServiceLocator.java) class (trivial wrapper over Service Loader concept).
 
 To improve the modularity mechanism, we added the concept of [Initializer]({{ site.coreurl }}/src/main/java/ro/pippo/core/Initializer.java).  
-When Pippo starts up an application, it scans the classpath roots, looking for files named `pippo.properties`. It reads 
-every pippo.properties file it finds, and it instantiates and execute the initializers defined in those files. 
+When Pippo starts up an application, it scans the classpath roots, looking for _Initializer_ implementations.   
+It instantiates and execute the initializers defined via Service Loader.
+Of course you can create `META-INF/services` manually but the easy mode is to use the `@MetaInfServices` annotation. 
+The `@MetaInfServices` annotation generates _META-INF/services/*_ file from annotations that you placed on your source code, thereby eliminating the need for you to do it by yourself.   
 
-To demonstrate the initializer concept I added a dump [FreemarkerInitializer]({{ site.codeurl }}/pippo-template-parent/pippo-freemarker/src/main/java/ro/pippo/freemarker/FreemarkerInitializer.java) in pippo-freemarker module. In our example, 
-the [pippo.properties]({{ site.codeurl }}/pippo-freemarker/src/main/resources/pippo.properties) file (which should be packaged in the root of the classpath) contains only one line:
-
-```properties
-initializer=ro.pippo.freemarker.FreemarkerInitializer
-```
-
+To demonstrate the initializer concept I added a dump [FreemarkerInitializer]({{ site.codeurl }}/pippo-template-parent/pippo-freemarker/src/main/java/ro/pippo/freemarker/FreemarkerInitializer.java) in pippo-freemarker module.
 The initializer can be implemented like this:
 
  ```java
+@MetaInfServices
 public class FreemarkerInitializer implements Initializer {
 
     @Override
@@ -54,6 +51,7 @@ For example my application comes with two modules (two jars): _contacts_ and _us
 I can have _ContactInitializer.java_ with this content:
 
 ```java
+@MetaInfServices
 public class ContactInitializer implements Initializer {
 
     @Override
@@ -76,6 +74,7 @@ public class ContactInitializer implements Initializer {
 I can have _UserInitializer.java_ with this content:
 
 ```java
+@MetaInfServices
 public class UserInitializer implements Initializer {
 
     @Override
