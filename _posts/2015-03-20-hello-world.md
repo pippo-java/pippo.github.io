@@ -13,7 +13,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         Pippo pippo = new Pippo();
-        pippo.getApplication().GET("/", (routeContext) -> routeContext.send("Hello World!"));
+        pippo.GET("/", (routeContext) -> routeContext.send("Hello World!"));
         pippo.start();
     }
 

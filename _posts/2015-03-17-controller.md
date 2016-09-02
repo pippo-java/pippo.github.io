@@ -35,8 +35,8 @@ public class ControllerDemo {
 
     public static void main(String[] args) {
         Pippo pippo = new Pippo();
-        pippo.getApplication().GET("/", ContactsController.class, "index");
-        pippo.getApplication().GET("/contact/{id}", ContactsController.class, "getContact");
+        pippo.GET("/", ContactsController.class, "index");
+        pippo.GET("/contact/{id}", ContactsController.class, "getContact");
         pippo.start();
     }
 

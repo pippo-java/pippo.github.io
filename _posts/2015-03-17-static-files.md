@@ -19,16 +19,16 @@ For example:
 
 ```java
 Pippo pippo = new Pippo();
-pippo.getApplication().addPublicResourceRoute();
-pippo.getApplication().addWebjarsResourceRoute();
+pippo.addPublicResourceRoute();
+pippo.addWebjarsResourceRoute();
 ```
 
 or more verbose:
 
 ```java
 Pippo pippo = new Pippo();
-pippo.getApplication().addResourceRoute(new PublicResourceHandler());
-pippo.getApplication().addResourceRoute(new WebjarsResourceHandler());
+pippo.addResourceRoute(new PublicResourceHandler());
+pippo.addResourceRoute(new WebjarsResourceHandler());
 ```
 
 You can use multiple `FileResourceRoute` but it is nonsense to use more `PublicResourceRoute` or more `WebjarsResourceRoute`.  
@@ -97,7 +97,7 @@ If you want to serve static files that are not on the classpath then you may use
 ```java
 Pippo pippo = new Pippo();
 // make available some files from a local folder (try a request like 'src/main/resources/simplelogger.properties')
-pippo.getApplication().addFileResourceRoute("/src", "src");
+pippo.addFileResourceRoute("/src", "src");
 ```
 
 For security reasons, the `FileResourceRoute` doesn't serve resources from outside its base directory by using relative paths such as `../../../private.txt`.

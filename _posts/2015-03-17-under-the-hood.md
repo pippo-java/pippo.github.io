@@ -144,7 +144,7 @@ public class MyDemo {
         Pippo pippo = new Pippo();
 
         // add routes
-        pippo.getApplication().GET("/", (routeContext) -> routeContext.send("Hello World"));
+        pippo.GET("/", (routeContext) -> routeContext.send("Hello World"));
 
         // start the embedded server
         pippo.start();
