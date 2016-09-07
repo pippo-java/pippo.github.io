@@ -7,7 +7,7 @@ order: 20
 ---
 
 - Core
-     - [Pippo Core]({{ site.codeurl }}/pippo-core)  `pippo-core` (jar)
+     - [Pippo Core]({{ site.codeurl }}/pippo-core) `pippo-core` (jar)
 - Web Server
      - [Pippo Jetty]({{ site.codeurl }}/pippo-server-parent/pippo-jetty) `pippo-jetty` (jar)
      - [Pippo Twjs]({{ site.codeurl }}/pippo-server-parent/pippo-tjws) `pippo-twjs` (jar)
@@ -38,6 +38,8 @@ order: 20
      - [Pippo Metrics Graphite Reporter]({{ site.codeurl }}/pippo-metrics-parent/pippo-metrics-graphite) `pippo-metrics-graphite` (jar)
      - [Pippo Metrics InfluxDB Reporter]({{ site.codeurl }}/pippo-metrics-parent/pippo-metrics-influxdb) `pippo-metrics-influxdb` (jar)
      - [Pippo Metrics Librato Reporter]({{ site.codeurl }}/pippo-metrics-parent/pippo-metrics-librato) `pippo-metrics-librato` (jar)
+- Test
+     - [Pippo Test]({{ site.codeurl }}/pippo-test) `pippo-test` (jar)
 - Generic
      - [Pippo Controller]({{ site.codeurl }}/pippo-controller-parent/pippo-controller/) `pippo-controller` (jar)
      - [Pippo Session]({{ site.codeurl }}/pippo-session-parent/pippo-session) `pippo-session` (jar)
