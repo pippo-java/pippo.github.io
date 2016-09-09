@@ -6,7 +6,7 @@ date: 2016-08-08 09:46:53
 order: 201
 ---
 
-### Packaging
+#### Packaging
 
 The recommended way to deploy Pippo applications is as a normal executable application with an embedded web server.
 
@@ -93,13 +93,13 @@ In order to create a .zip file consisting of your application and its dependenci
 
 * Execute `mvn clean package` and view your packaged application at `target/yourappname-#.#.#.zip`
 
-### Deployment
+#### Deployment
 
 * Transfer the .zip file to your server
 * Unzip it
 * Execute `java -jar yourappname-#.#.#.jar`
 
-### Snapshot Workaround
+#### Snapshot Workaround
 
 If you are using a SNAPSHOT version of Pippo as described in the [Maven section](../dev/maven.html), a small workaround is necessary due to a Maven bug:
 
