@@ -29,7 +29,7 @@ mvn install
 mvn archetype:generate \
   -DarchetypeGroupId=ro.pippo \
   -DarchetypeArtifactId=pippo-quickstart \
-  -DarchetypeVersion=0.8.0 \
+  -DarchetypeVersion=0.9.0 \
   -DgroupId=com.mycompany \
   -DartifactId=myproject
 ```
