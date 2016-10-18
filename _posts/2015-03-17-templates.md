@@ -20,7 +20,7 @@ Pippo comes (out of the box) with some template engines:
 - [Groovy](/doc/templates/groovy.html) `pippo-groovy`
 - [Pebble](/doc/templates/pebble.html) `pippo-pebble`
 - [Trimou](/doc/templates/trimou.html) `pippo-trimou`
-- [Velocity]({{ site.codeurl }}/pippo-velocity) `pippo-velocity`
+- [Velocity]({{ site.codeurl }}/pippo-template-parent/pippo-velocity) `pippo-velocity`
 
 To use one of these template engines just add a dependency in your project:
 
