@@ -21,13 +21,13 @@ public class BasicApplication extends Application {
 
     @Override
     protected void onInit() {
-        // throw a programatically exception
-        GET("/exception", (routeContext) -> {
-			throw new RuntimeException("My programatically error");
+        // throw a programmatically exception
+        GET("/exception", routeContext -> {
+			throw new RuntimeException("My programmatically error");
         });
 
         // throw an exception that gets handled by a registered ExceptionHandler
-        GET("/whoops", (routeContext) -> {
+        GET("/whoops", routeContext -> {
 			throw new ForbiddenException("You didn't say the magic word!");
         });
 

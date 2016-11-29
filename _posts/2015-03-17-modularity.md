@@ -57,10 +57,10 @@ public class ContactInitializer implements Initializer {
     @Override
     public void init(Application application) {
         // show contacts page
-        application.GET("/contacts", (routeContext) -> routeContext.render("contacts"));
+        application.GET("/contacts", routeContext -> routeContext.render("contacts"));
         
         // show contact page for the contact with id specified as path parameter 
-        application.GET("/contact/{id}", (routeContext) -> routeContext.render("contact"));
+        application.GET("/contact/{id}", routeContext -> routeContext.render("contact"));
     }
 
     @Override
@@ -80,10 +80,10 @@ public class UserInitializer implements Initializer {
     @Override
     public void init(Application application) {
         // show users page
-        application.GET("/users", (routeContext) -> routeContext.render("users"));
+        application.GET("/users", routeContext -> routeContext.render("users"));
         
         // show user page for the user with id specified as path parameter 
-        application.GET("/user/{id}", (routeContext) -> routeContext.render("user"));
+        application.GET("/user/{id}", routeContext -> routeContext.render("user"));
     }
 
     @Override

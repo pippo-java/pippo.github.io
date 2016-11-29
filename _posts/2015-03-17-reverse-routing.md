@@ -32,7 +32,7 @@ And now the link created should be something like `/contacts/1?action=new`.
 The same can be applied to non controller routes:
 
 ```java
-GET("/contacts/{id}", (routeContext) -> {...}
+GET("/contacts/{id}", routeContext -> {...}
 ```
 
 Now we can use `uriFor(String uriPattern, Map<String, Object> parameters)` method to retrieves the URL:
@@ -48,7 +48,7 @@ Are some scenarios when it's more ease to use the route name for `uriFor()`.
 In few words I can add a route (in an hypothetical blog application) that render a template with:
 
 ```java
-GET("/blogs/{year}/{month}/{day}/{title}", (routeContext) -> { routeContext.render("myTemplate")});
+GET("/blogs/{year}/{month}/{day}/{title}", routeContext -> { routeContext.render("myTemplate")});
 ```
 
 It's hard to create the reverse routing using the `uriPattern`:
@@ -61,7 +61,7 @@ routeContext.uriFor("/blogs/{year}/{month}/{day}/{title}", parameters);
 The simplest solution is to add a `name` to our route and to use this name when we build the URL(reverse routing) to that route:
 
 ```java
-GET("/blogs/{year}/{month}/{day}/{title}", (routeContext) -> { routeContext.render("myTemplate")}).named("blog");
+GET("/blogs/{year}/{month}/{day}/{title}", routeContext -> routeContext.render("myTemplate")).named("blog");
 ```
 
 The new code becomes more short and readable:

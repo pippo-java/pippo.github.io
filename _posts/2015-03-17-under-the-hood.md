@@ -51,14 +51,14 @@ You can see a filter as a RouteHandler that does not commit the response. A filt
 
 ```java
 // audit filter
-GET("/.*", (routeContext) -> {
+GET("/.*", routeContext -> {
 	Request request = routeContext.getRequest();
     System.out.println("Url: '" + request.getUrl());
     System.out.println("Uri: '" + request.getUri());
     System.out.println("Parameters: " + request.getParameters());
 });
 
-GET("/hello",(routeContext) -> routeContext.send("Hello World"));
+GET("/hello",routeContext -> routeContext.send("Hello World"));
 ```
 
 You can see in the above example that I put an audit filter in front of all requests.
@@ -67,7 +67,7 @@ From version 0.4, Pippo comes with a new very useful method `Request.createEntit
 Let's see some code that shows in action this feature:
 
 ```java
-POST("/contact", (routeContext) -> {
+POST("/contact", routeContext -> {
 	String action = routeContext.getParameter("action").toString();
 	if ("save".equals(action)) {
 		Contact contact = routeContext.createEntityFromParameters(Contact.class);
@@ -79,7 +79,7 @@ POST("/contact", (routeContext) -> {
 The old version has:
 
 ```java
-POST("/contact", (routeContext) -> {
+POST("/contact", routeContext -> {
 	String action = routeContext.getParameter("action").toString();
     if ("save".equals(action)) {
         Contact contact = new Contact();
@@ -129,7 +129,7 @@ public class MyApplication extends Application {
 
     @Override
     protected void onInit() {
-        GET("/", (routeContext) -> routeContext.send("Hello World"));        
+        GET("/", routeContext -> routeContext.send("Hello World"));        
     }
 
 }
@@ -144,14 +144,14 @@ public class MyDemo {
         Pippo pippo = new Pippo();
 
         // add routes
-        pippo.GET("/", (routeContext) -> routeContext.send("Hello World"));
+        pippo.GET("/", routeContext -> routeContext.send("Hello World"));
 
         // start the embedded server
         pippo.start();
     }
 
 }
-```     
+```
 
 [RouteContext]({{ site.coreurl }}/src/main/java/ro/pippo/core/route/RouteContext.java) represents the current context of a `Route` being processed by the Pippo.  
 It's an object that encapsulates information about the route.  

@@ -39,7 +39,7 @@ TemplateEngine as content (for Jade the content file is _ro.pippo.jade.JadeTempl
 Bellow is a code snippet about how you can use a template as response to a request:
 
 ```java
-GET("/contact/{id}", (routeContext) -> {
+GET("/contact/{id}", routeContext -> {
     int id = routeContext.getParameter("id").toInt(0);    
     String action = routeContext.getParameter("action").toString("new");
     
@@ -54,7 +54,7 @@ Don't forget that `locals` variables from a response will be available automatic
 So, maybe the shortest version is:
 
 ```java
-GET("/contact/{id}", (routeContext) -> {
+GET("/contact/{id}", routeContext -> {
 	routeContext.setLocal("id", routeContext.getParameter("id").toInt(0));
 	routeContext.setLocal("action", routeContext.getParameter("action").toString("new"));	
     routeContext.render("contact");

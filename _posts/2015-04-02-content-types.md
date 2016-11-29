@@ -77,7 +77,7 @@ public class BasicApplication extends Application {
     @Override
     protected void onInit() {
         // send xml as response
-        GET("/xml", (routeContext) -> {
+        GET("/xml", routeContext -> {
 			Contact contact = createContact();
 			routeContext.xml().send(contact);
         });
@@ -108,7 +108,7 @@ public class BasicApplication extends Application {
     @Override
     protected void onInit() {
         // send an object and negotiate the Response content-type, default to XML
-        GET("/negotiate", (routeContext) -> {
+        GET("/negotiate", routeContext -> {
 			Contact contact = createContact();
 			routeContext.xml().negotiateContentType().send(contact);
 		});
