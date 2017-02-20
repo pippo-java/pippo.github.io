@@ -13,7 +13,7 @@ The goal of this project is to create a micro web framework in Java that should 
 Pippo can be used in small and medium applications and also in applications based on micro services architecture.   
 We believe in simplicity and we will try to develop this framework with these words in mind.  
 
-The core is small (around 140k) and we intend to keep it as small/simple as possible and to push new functionalities in pippo modules and third-party repositories/modules.  
+The core is small (around **140 KB**) and we intend to keep it as small/simple as possible and to push new functionalities in pippo modules and third-party repositories/modules.  
 You are not forced to use a specific template engine or an embedded web server. Furthermore you have multiple out of the box options (see [Templates](/doc/templates.html) and [Server](/doc/server.html)).  
 
 Also, Pippo comes with a very small footprint that makes it excellent for embedded devices (Raspberry Pi for example).  
