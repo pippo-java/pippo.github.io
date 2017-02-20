@@ -143,13 +143,14 @@ public class BasicApplication extends ControllerApplication {
 
     @Override
     protected void onInit() {
-        // add controller(s)
         addControllers(ContactsController.class); // one instance for EACH request
-        // or
+        // OR
         addControllers(new ContactsController()); // one instance for ALL requests        
     }
 
 }
 ```
+
+For more information about Controllers please see [Controller](controller.html) section.
  
 For a detailed overview please see section [Under the hood](/dev/under-the-hood.html).

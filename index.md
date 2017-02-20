@@ -24,7 +24,9 @@ The framework is based on Java Servlet 3.0 and requires Java 8.
    
 **Talk is cheap. Show me the code.**
 
-1) Add some routes in your application
+1.1) Routes approach
+
+Add some routes in your application:
 
 ```java
 public class BasicApplication extends Application {
@@ -72,6 +74,52 @@ public class BasicApplication extends Application {
 	
 }
 ``` 
+
+1.2) Controllers approach
+
+Define controller(s):
+
+```java
+@Path("/contacts")
+public class ContactsController extends Controller {
+
+    @GET("/?")
+    public void index() {
+		List<Contact> contacts = contactService.getContacts();
+		getResponse().bind("contacts", contacts).render("contacts");
+    }
+    
+    @GET("/{id: [0-9]+}")
+    public void getContact(@Param int id) {
+        Contact contact = contactService.getContact(id);
+        getResponse().bind("contact", contact).render(contact);
+    }
+
+    @GET("/text")
+    @Named("text")
+    @Produces(Produces.TEXT)
+    @NoCache
+    public void complex(@Param int id, @Param String action, @Header String host, @Session String user) {
+        // do something
+    }
+    
+}
+```
+
+Add controller(s) in your application:
+
+```java
+public class BasicApplication extends ControllerApplication {
+
+    @Override
+    protected void onInit() {
+        addControllers(ContactsController.class); // one instance for EACH request
+        // OR
+        addControllers(new ContactsController()); // one instance for ALL requests        
+    }
+
+}
+```
 
 2) Start your application
 

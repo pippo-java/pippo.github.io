@@ -68,6 +68,19 @@ public class ControllerDemo {
 }
 ```
 
+**DON'T** forget to add `pippo-controller` module as dependency in your project. 
+If you use Maven, your `pom.xml` must contains above lines:
+
+```xml
+<dependency>
+    <groupId>ro.pippo</groupId>
+    <artifactId>pippo-controller</artifactId>
+    <version>${pippo.version}</version>
+</dependency>
+
+```
+
+
 #### Implementation details
 
 Advanced features (Extractor, Interceptor, ...) and technical aspects are presented in details [here](https://github.com/decebals/pippo/pull/341).
