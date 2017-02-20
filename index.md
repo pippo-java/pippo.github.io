@@ -24,7 +24,7 @@ The framework is based on Java Servlet 3.0 and requires Java 8.
    
 **Talk is cheap. Show me the code.**
 
-1.1) Routes approach
+#### 1.1 Routes approach
 
 Add some routes in your application:
 
@@ -75,7 +75,7 @@ public class BasicApplication extends Application {
 }
 ``` 
 
-1.2) Controllers approach
+#### 1.2 Controllers approach
 
 Define controller(s):
 
@@ -121,7 +121,7 @@ public class BasicApplication extends ControllerApplication {
 }
 ```
 
-2) Start your application
+#### 2. Start your application
 
 ```java
 public class BasicDemo {
