@@ -9,7 +9,7 @@ order: 10
 We provide a pippo-demo module that contains many demo applications (submodules): pippo-demo-basic and pippo-demo-crud are some.  
 For a list with all demo please see [Demo](demo.html) section.
 
-#### Routes approach 
+#### 1. Routes approach 
 
 For [pippo-demo-basic]({{ site.demourl }}/pippo-demo-basic) you have two java files: [BasicDemo.java]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/BasicDemo.java) and [BasicApplication.java]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/BasicApplication.java)  
 We split our application in two parts for a better readability.
@@ -101,7 +101,7 @@ Open your internet browser and check the routes declared in Application:
  - `http://localhost:8338/negotiate`
  - `http://localhost:8338/template` 
  
-#### Controllers approach
+#### 2. Controllers approach
 
 Another approach to handling a request and producing a response is using Controllers. After routing has determined what controller to use, an action method will be invoked.
 In Pippo, controllers are instances of [Controller]({{ site.codeurl }}/pippo-controller-parent/pippo-controller/src/main/java/ro/pippo/controller/Controller.java).
