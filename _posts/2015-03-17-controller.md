@@ -15,28 +15,94 @@ Defining a new controller is simple:
 
 ```java
 @Path("/contacts")
+@Logging
 public class ContactsController extends Controller {
 
-    @GET("/?")
-    public void index() {
-		List<Contact> contacts = contactService.getContacts();
-		getResponse().bind("contacts", contacts).render("contacts");
-    }
-    
-    @GET("/{id: [0-9]+}")
-    public void getContact(@Param int id) {
-        Contact contact = contactService.getContact(id);
-        getResponse().bind("contact", contact).render(contact);
+    private ContactService contactService;
+
+    public ContactsController() {
+        contactService = new InMemoryContactService();
     }
 
-    @GET("/text")
-    @Named("text")
-    @Produces(Produces.TEXT)
-    @NoCache
-    public void complex(@Param int id, @Param String action, @Header String host, @Session String user) {
-        // do something
+    @GET
+    @Named("index")
+//    @Produces(Produces.HTML)
+    @Metered
+    @Logging
+    public void index() {
+        // inject "user" attribute in session
+        getRouteContext().setSession("user", "decebal");
+
+        // send a template with name "contacts" as response
+        getResponse()
+            .bind("contacts", contactService.getContacts())
+            .render("contacts");
     }
-    
+
+    @GET("/uriFor/{id: [0-9]+}")
+    @Named("uriFor")
+    @Produces(Produces.TEXT)
+    @Timed
+    public String uriFor(@Param int id, @Header String host, @Session String user) {
+        System.out.println("id = " + id);
+        System.out.println("host = " + host);
+        System.out.println("user = " + user);
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("id", id);
+
+        String uri = getApplication().getRouter().uriFor("api.get", parameters);
+
+        return "id = " + id + "; uri = " + uri;
+    }
+
+    @GET("/api")
+    @Named("api.getAll")
+    @Produces(Produces.JSON)
+    @NoCache
+    public List<Contact> getAll() {
+        return contactService.getContacts();
+    }
+
+    @GET("/api/{id: [0-9]+}")
+    @Named("api.get")
+    @Produces(Produces.JSON)
+    public Contact get(@Param int id) {
+        return contactService.getContact(id);
+    }
+
+}
+```
+
+```java
+@Path("/files")
+public class FilesController extends Controller {
+
+    @GET
+    public void index() {
+        // send a template with name "files" as response
+        getRouteContext().render("files");
+    }
+
+    @GET("/download")
+    public File download() {
+        // send a file as response
+        return new File("pom.xml");
+    }
+
+    @POST("/upload")
+    @Produces(Produces.TEXT)
+    public String upload(FileItem file) {
+        // send a text (the info about uploaded file) as response
+//        return file.toString();
+        return new StringBuilder()
+            .append(file.getName()).append("\n")
+            .append(file.getSubmittedFileName()).append("\n")
+            .append(file.getSize()).append("\n")
+            .append(file.getContentType())
+            .toString();
+    }
+
 }
 ```
 
@@ -51,7 +117,9 @@ public class MyApplication extends ControllerApplication {
         // add controller(s)
         addControllers(ContactsController.class); // one instance for EACH request
         // or
-        addControllers(new ContactsController()); // one instance for ALL requests        
+        addControllers(new ContactsController()); // one instance for ALL requests
+                
+        addControllers(FilesController.class);
     }
 
 }
