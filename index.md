@@ -59,7 +59,7 @@ public class BasicApplication extends Application {
 
         // send a template with name "hello" as response
         GET("/template", routeContext -> {
-            routeContext.setLocal("greeting", "Hello");
+            routeContext.setLocal("greeting", "Hello"); // template's model/context
             routeContext.render("hello");
         });
     }
