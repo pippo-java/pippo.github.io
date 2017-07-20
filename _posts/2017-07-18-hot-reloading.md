@@ -7,6 +7,7 @@ order: 199
 ---
 
 #### How to use
+
 This feature allows you to write code, save the code on disk and reload the web page from browser without restart the application (from IDE).
 
 ```java
@@ -41,6 +42,7 @@ You can supply the application class name using one of the below methods:
 - use `-Dpippo.applicationClassName` system property
 
 #### How works
+
 To implement hot reloading, Pippo introduces two new concepts (classes in package `ro.pippo.core.reload`):
 
 - `ReloadWatcher`
