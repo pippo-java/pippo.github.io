@@ -16,24 +16,17 @@ Creating a quickstart provides only a very basic starting point for your Pippo p
 
 To create your project you must follow these steps:
 
-- install [pippo-quickstart](https://github.com/decebals/pippo/tree/master/maven-archetypes/quickstart) archetype on your computer (this step is **OPTIONAL**; the archetype is also available on Maven Central Repository):
-
-```
-cd <PIPPO_HOME>/maven-archetypes/quickstart
-mvn install
-```
-
 - create your quickstart project:
 
 ```
 mvn archetype:generate \
   -DarchetypeGroupId=ro.pippo \
   -DarchetypeArtifactId=pippo-quickstart \
-  -DarchetypeVersion=0.9.0 \
+  -DarchetypeVersion=1.5.0 \
   -DgroupId=com.mycompany \
   -DartifactId=myproject
 ```
-maybe you want to change `groupId`, `artifactId`
+maybe you want to change `groupId`, `artifactId` and `archetypeVersion` (the last Pippo version)
 
 - run your application from command line:
 
