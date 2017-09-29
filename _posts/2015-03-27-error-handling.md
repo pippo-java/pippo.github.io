@@ -15,7 +15,6 @@ that integrates with the `TemplateEngine` & `ContentTypeEngine`. It generates a 
 
 
 See below an custom ErrorHandler in action:
-
 ```java
 public class BasicApplication extends Application {
 
