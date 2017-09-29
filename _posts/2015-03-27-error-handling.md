@@ -22,12 +22,12 @@ public class BasicApplication extends Application {
     protected void onInit() {
         // throw a programmatically exception
         GET("/exception", routeContext -> {
-			throw new RuntimeException("My programmatically error");
+            throw new RuntimeException("My programmatically error");
         });
 
         // throw an exception that gets handled by a registered ExceptionHandler
         GET("/whoops", routeContext -> {
-			throw new ForbiddenException("You didn't say the magic word!");
+            throw new ForbiddenException("You didn't say the magic word!");
         });
 
         // register a custom ExceptionHandler
