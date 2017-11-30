@@ -44,9 +44,7 @@ future: true
 exclude: ['bin', 'README.md']
 
 # Use the redcarpet Markdown renderer
-# !!! Uncomment for local (Jekyll 2)
-#markdown: redcarpet
-markdown: kramdown
+markdown: redcarpet
 redcarpet:
     extensions: [
         'no_intra_emphasis',
