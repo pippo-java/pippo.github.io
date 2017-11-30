@@ -52,7 +52,7 @@ You can see a filter as a RouteHandler that does not commit the response. A filt
 ```java
 // audit filter
 GET("/.*", routeContext -> {
-	Request request = routeContext.getRequest();
+    Request request = routeContext.getRequest();
     System.out.println("Url: '" + request.getUrl());
     System.out.println("Uri: '" + request.getUri());
     System.out.println("Parameters: " + request.getParameters());
@@ -68,19 +68,19 @@ Let's see some code that shows in action this feature:
 
 ```java
 POST("/contact", routeContext -> {
-	String action = routeContext.getParameter("action").toString();
-	if ("save".equals(action)) {
-		Contact contact = routeContext.createEntityFromParameters(Contact.class);
-		contactService.save(contact);
-		routeContext.redirect("/contacts");
-	}        
+    String action = routeContext.getParameter("action").toString();
+    if ("save".equals(action)) {
+        Contact contact = routeContext.createEntityFromParameters(Contact.class);
+        contactService.save(contact);
+        routeContext.redirect("/contacts");
+    }        
 });
 ```
 The old version has:
 
 ```java
 POST("/contact", routeContext -> {
-	String action = routeContext.getParameter("action").toString();
+    String action = routeContext.getParameter("action").toString();
     if ("save".equals(action)) {
         Contact contact = new Contact();
         contact.setId(request.getParameter("id").toInt(-1));

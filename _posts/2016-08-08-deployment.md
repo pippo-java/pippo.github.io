@@ -16,22 +16,22 @@ In order to create a .zip file consisting of your application and its dependenci
 
 ```xml
 <assembly>
-   <id>app</id>
-   <formats>
-      <format>zip</format>
-   </formats>
-   <includeBaseDirectory>false</includeBaseDirectory>
-   <dependencySets>
-      <dependencySet>
+    <id>app</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <scope>runtime</scope>
-         <outputDirectory>lib</outputDirectory>
-         <includes>
-            <include>*:jar:*</include>
-         </includes>
-      </dependencySet>
-   </dependencySets>
-   <fileSets>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>*:jar:*</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
         <fileSet>
             <directory>${project.build.directory}</directory>
             <outputDirectory>.</outputDirectory>
@@ -40,7 +40,7 @@ In order to create a .zip file consisting of your application and its dependenci
             </includes>
             <excludes>
                 <exclude>*-javadoc.jar</exclude>
-            <exclude>*-sources.jar</exclude>
+                <exclude>*-sources.jar</exclude>
             </excludes>
         </fileSet>
     </fileSets>
@@ -51,41 +51,41 @@ In order to create a .zip file consisting of your application and its dependenci
 
 ```xml
 <build>
-	<plugins>
-		<plugin>
-			<artifactId>maven-assembly-plugin</artifactId>
-			<version>2.3</version>
-			<configuration>
-				<descriptors>
-					<descriptor>src/main/assembly/assembly.xml</descriptor>
-				</descriptors>
-				<appendAssemblyId>false</appendAssemblyId>
-			</configuration>
-			<executions>
-				<execution>
-					<id>make-assembly</id>
-					<phase>package</phase>
-					<goals>
-						<goal>attached</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-			<version>2.3.1</version>
-			<configuration>
-				<archive>
-					<manifest>
-						<addClasspath>true</addClasspath>
-						<classpathPrefix>lib/</classpathPrefix>
-						<mainClass>${main.class}</mainClass>
-					</manifest>
-				</archive>
-			</configuration>
-		</plugin>
-	</plugins>
+    <plugins>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.3</version>
+            <configuration>
+                <descriptors>
+                    <descriptor>src/main/assembly/assembly.xml</descriptor>
+                </descriptors>
+                <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>attached</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.3.1</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <classpathPrefix>lib/</classpathPrefix>
+                        <mainClass>${main.class}</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
 </build>
 ```
 
@@ -106,5 +106,3 @@ If you are using a SNAPSHOT version of Pippo as described in the [Maven section]
 * Add `<outputFileNameMapping>${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>` to the `dependencySet` element inside `assembly.xml`
 
 * Add `<useUniqueVersions>false</useUniqueVersions>` to the maven-jar-plugin's `manifest` section inside `pom.xml`
-
-

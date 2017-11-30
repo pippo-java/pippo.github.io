@@ -47,16 +47,16 @@ Bellow is an example how you can retrieve programmatically an internationalized 
 ```java
 // send an internationalized message as response
 GET("/i18n", routeContext -> {
-	String message;
+    String message;
 
-	String lang = routeContext.getParameter("lang").toString();
-	if (lang == null) {
-		message = getMessages().get("pippo.greeting", routeContext);
-	} else {
-		message = getMessages().get("pippo.greeting", lang);
-	}
+    String lang = routeContext.getParameter("lang").toString();
+    if (lang == null) {
+        message = getMessages().get("pippo.greeting", routeContext);
+    } else {
+        message = getMessages().get("pippo.greeting", lang);
+    }
 
-	routeContext.send(message);
+    routeContext.send(message);
 });
 ```
 

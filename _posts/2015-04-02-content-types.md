@@ -29,20 +29,20 @@ public class XstreamEngine implements ContentTypeEngine {
         return HttpConstants.ContentType.APPLICATION_XML; // "application/xml"
     }
 
-	@Override
-	public String toString(Object object) {
-		return new XStream().toXML(object);
-	}
+    @Override
+    public String toString(Object object) {
+        return new XStream().toXML(object);
+    }
 
-	@Override
-	public <T> T fromString(String content, Class<T> classOfT) {
-		return (T) new XStream().fromXML(content);
-	}
+    @Override
+    public <T> T fromString(String content, Class<T> classOfT) {
+        return (T) new XStream().fromXML(content);
+    }
 
-	@Override
-	public void init(Application application) {
-		// do nothing
-	}
+    @Override
+    public void init(Application application) {
+        // do nothing
+    }
 
 }
 ```
@@ -64,7 +64,7 @@ public class XstreamInitializer implements Initializer {
 
     @Override
     public void destroy(Application application) {
-		// do nothing
+        // do nothing
     }
 
 }
@@ -79,18 +79,18 @@ public class BasicApplication extends Application {
     protected void onInit() {
         // send xml as response
         GET("/xml", routeContext -> {
-			Contact contact = createContact();
-			routeContext.xml().send(contact);
+            Contact contact = createContact();
+            routeContext.xml().send(contact);
         });
     }
 
-	private Contact createContact() {
-		return new Contact()
-			.setId(12345)
-			.setName("John")
-			.setPhone("0733434435")
-			.setAddress("Sunflower Street, No. 6");
-	}
+    private Contact createContact() {
+        return new Contact()
+            .setId(12345)
+            .setName("John")
+            .setPhone("0733434435")
+            .setAddress("Sunflower Street, No. 6");
+    }
 
 }
 ```
@@ -110,10 +110,10 @@ public class BasicApplication extends Application {
     protected void onInit() {
         // send an object and negotiate the Response content-type, default to XML
         GET("/negotiate", routeContext -> {
-			Contact contact = createContact();
-			routeContext.xml().negotiateContentType().send(contact);
-		});
-	}
+            Contact contact = createContact();
+            routeContext.xml().negotiateContentType().send(contact);
+        });
+    }
 
 }
 ```
