@@ -70,8 +70,8 @@ If you want to have more control over webjars artifact version you can use this 
 
 ```html
 <head>
-	<link href="${webjarsAt('bootstrap/3.3.1/css/bootstrap.min.css')}" rel="stylesheet">
-	<link href="${webjarsAt('font-awesome/4.2.0/css/font-awesome.min.css')}" rel="stylesheet">
+    <link href="${webjarsAt('bootstrap/3.3.1/css/bootstrap.min.css')}" rel="stylesheet">
+    <link href="${webjarsAt('font-awesome/4.2.0/css/font-awesome.min.css')}" rel="stylesheet">
 </head>
 ```
 
@@ -80,15 +80,15 @@ Sure in your pom.xml file (if you use Maven) you must declare the dependencies t
 ```xml
 <!-- Webjars -->
 <dependency>
-	<groupId>org.webjars</groupId>
-	<artifactId>bootstrap</artifactId>
-	<version>3.3.1</version>
+    <groupId>org.webjars</groupId>
+    <artifactId>bootstrap</artifactId>
+    <version>3.3.1</version>
 </dependency>
 
 <dependency>
-	<groupId>org.webjars</groupId>
-	<artifactId>font-awesome</artifactId>
-	<version>4.2.0</version>
+    <groupId>org.webjars</groupId>
+    <artifactId>font-awesome</artifactId>
+    <version>4.2.0</version>
 </dependency>
 ```
 

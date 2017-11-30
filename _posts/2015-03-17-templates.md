@@ -26,9 +26,9 @@ To use one of these template engines just add a dependency in your project:
 
 ```
 <dependency>
-	<groupId>ro.pippo</groupId>
-	<artifactId>pippo-freemarker</artifactId>
-	<version>${pippo.version}</version>
+    <groupId>ro.pippo</groupId>
+    <artifactId>pippo-freemarker</artifactId>
+    <version>${pippo.version}</version>
 </dependency>
 ```
 
@@ -55,8 +55,8 @@ So, maybe the shortest version is:
 
 ```java
 GET("/contact/{id}", routeContext -> {
-	routeContext.setLocal("id", routeContext.getParameter("id").toInt(0));
-	routeContext.setLocal("action", routeContext.getParameter("action").toString("new"));	
+    routeContext.setLocal("id", routeContext.getParameter("id").toInt(0));
+    routeContext.setLocal("action", routeContext.getParameter("action").toString("new"));	
     routeContext.render("contact");
 });
 ```
