@@ -54,4 +54,4 @@ public class BasicApplication extends Application {
 }
 ```
   
-If you want to customize the template content for the default error templates (see the list of templates names in [DefaultErrorHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/TemplateEngine.java)) then create a template with the same name in `resources\templates` folder. 
+If you want to customize the template content for the default error templates (see the list of templates names in [TemplateEngine]({{ site.coreurl }}/src/main/java/ro/pippo/core/TemplateEngine.java)) then create a template with the same name in `src/main/resources/templates` folder. 
