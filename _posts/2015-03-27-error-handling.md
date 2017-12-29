@@ -40,10 +40,10 @@ public class BasicApplication extends Application {
                 getErrorHandler().handle(403, routeContext);
             }
             
-        });    
-	}
-	
-	public static class ForbiddenException extends RuntimeException {
+        });
+    }
+    
+    public static class ForbiddenException extends RuntimeException {
 
         public ForbiddenException(String message) {
             super(message);
@@ -53,3 +53,5 @@ public class BasicApplication extends Application {
 
 }
 ```
+  
+If you want to customize the template content for the default error templates (see the list of templates names in [DefaultErrorHandler]({{ site.coreurl }}/src/main/java/ro/pippo/core/TemplateEngine.java)) then create a template with the same name in `resources\templates` folder. 
