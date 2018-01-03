@@ -153,7 +153,7 @@ If you use Maven, your `pom.xml` must contains above lines:
 The Controller module may depend on the `-parameters` flag of the Java 8 javac compiler. This flag embeds the names of method parameters in the generated .class files.
   
 By default Java 8 does not compile with this flag set so you must specify javac compiler arguments for Maven and your IDE.
-```
+```xml
 <build>
   <plugins>
     <plugin>
