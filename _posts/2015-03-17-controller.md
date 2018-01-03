@@ -148,7 +148,53 @@ If you use Maven, your `pom.xml` must contains above lines:
 
 ```
 
+#### Parameter name
 
+The Controller module may depend on the `-parameters` flag of the Java 8 javac compiler. This flag embeds the names of method parameters in the generated .class files.
+  
+By default Java 8 does not compile with this flag set so you must specify javac compiler arguments for Maven and your IDE.
+```
+<build>
+  <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+            <compilerArguments>
+                <parameters/>
+            </compilerArguments>
+        </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
+
+So, if you you compile with `-parameters` flag you can define the controller method like:
+```java
+void invoice(@Param orderId) { ... }
+```
+
+instead of:
+```java
+void invoice(@Param("orderId") orderId) { ... }
+```
+
+If you use the first variant without `-parameters` flag on compile, you will receive an exception like:
+```java
+ro.pippo.core.PippoRuntimeException: Method 'acme.controller.MyController::invoice' parameter 0 does not specify a name!
+	at ro.pippo.controller.extractor.ParamExtractor.getParameterName(ParamExtractor.java:69)
+	at ro.pippo.controller.extractor.ParamExtractor.extract(ParamExtractor.java:44)
+	at ro.pippo.controller.ControllerRouteHandler.prepareMethodParameters(ControllerRouteHandler.java:388)
+	at ro.pippo.controller.ControllerRouteHandler.handle(ControllerRouteHandler.java:120)
+	at ro.pippo.core.route.DefaultRouteContext.handleRoute(DefaultRouteContext.java:394)
+	at ro.pippo.core.route.DefaultRouteContext.next(DefaultRouteContext.java:276)
+	at ro.pippo.core.route.RouteDispatcher.onRouteDispatch(RouteDispatcher.java:153)
+	at ro.pippo.core.route.RouteDispatcher.dispatch(RouteDispatcher.java:101)
+	at ro.pippo.core.PippoFilter.processRequest(PippoFilter.java:179)
+```  
+  
 #### Implementation details
 
 Advanced features (Extractor, Interceptor, ...) and technical aspects are presented in details [here](https://github.com/decebals/pippo/pull/341).
