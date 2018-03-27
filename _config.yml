@@ -15,7 +15,7 @@ google_analytics_id: 'UA-60911767-1'
 navigation: 2
 
 # URL to source code, used in _includes/footer.html
-projecturl: 'https://github.com/decebals/pippo'
+projecturl: 'https://github.com/pippo-java/pippo'
 
 # Default categories (in order) to appear in the navigation
 sections: [
@@ -58,6 +58,6 @@ redcarpet:
     ]
 
 # URL to demo source code
-coreurl: 'https://github.com/decebals/pippo/blob/master/pippo-core'
-demourl: 'https://github.com/decebals/pippo-demo/blob/master'
-codeurl: 'https://github.com/decebals/pippo/blob/master'
+coreurl: 'https://github.com/pippo-java/pippo/blob/master/pippo-core'
+demourl: 'https://github.com/pippo-java/pippo-demo/blob/master'
+codeurl: 'https://github.com/pippo-java/pippo/blob/master'
