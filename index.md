@@ -3,10 +3,7 @@ layout: default
 title: "Pippo"
 ---
 
-     ____  ____  ____  ____  _____
-    (  _ \(_  _)(  _ \(  _ \(  _  )
-     ) __/ _)(_  ) __/ ) __/ )(_)( 
-    (__)  (____)(__)  (__)  (_____)
+<img src="{{ site.baseurl }}/pippo-logo.svg" width="250"/>
 
 It's an open source ([Apache License](http://www.apache.org/licenses/LICENSE-2.0)) micro web framework in Java, with minimal dependencies and a quick learning curve.     
 The goal of this project is to create a micro web framework in Java that should be easy to use and hack.  
