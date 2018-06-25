@@ -19,8 +19,8 @@ For example:
 
 ```java
 Pippo pippo = new Pippo();
-pippo.addPublicResourceRoute();
-pippo.addWebjarsResourceRoute();
+pippo.addPublicResourceRoute(); "/public/..."
+pippo.addWebjarsResourceRoute(); "/webjars/..."
 ```
 
 or more verbose:
@@ -32,7 +32,7 @@ pippo.addResourceRoute(new WebjarsResourceHandler());
 ```
 
 You can use multiple `FileResourceRoute` but it is nonsense to use more `PublicResourceRoute` or more `WebjarsResourceRoute`.  
-
+ 
 The [CrudNgDemo]({{ site.demourl }}/pippo-demo-crudng) (demo pippo-angularjs integration) is a good application that demonstrates the concept of static files. 
 In `src/main/resources` we created a folder __public__ and we put all assets in that folder (imgs, css, js, fonts, ...).
 
@@ -52,7 +52,7 @@ The CrudNgDemo uses the [Bootstrap](http://getbootstrap.com/) & [Font-Awesome](h
 
 The CrudNgDemo also uses a custom CSS file which is a classpath resource from the `/public` folder.
 
-In this demo, the html template page (freemarker engine) contains a head section like:
+In this demo, the html template page (`Freemarker engine`) contains a head section like:
 
 ```html
 <head>
@@ -92,6 +92,34 @@ Sure in your pom.xml file (if you use Maven) you must declare the dependencies t
 </dependency>
 ```
 
+Of course you can use `public` and `webjars` resources in your project without a template engine.
+In this case, your html file looks like
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My web page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/public/css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- My html content here --->
+
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/public/js/app.js"></script>
+    </body>
+</html>
+``` 
+
+If you use a supported template engine, then you can use `publicAt` and `webjarsAt` functions. 
+ 
 If you want to serve static files that are not on the classpath then you may use the `FileResourceRoute`.
 
 ```java
