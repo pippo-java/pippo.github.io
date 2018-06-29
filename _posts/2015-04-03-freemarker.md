@@ -9,7 +9,7 @@ date: 2015-04-03 15:39:09
 
 #### Setup
 
-1) Add the pippo-freemarker dependency to your pom.xml:
+1) Add the `pippo-freemarker` dependency to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -21,7 +21,7 @@ date: 2015-04-03 15:39:09
 
 2)  Start writing [Freemarker][freemarker] templates in the `templates` folder of your application.  
 
-**Note:** The default file extension of a Freemarker template is `.ftl` and it may be ommitted from your templates and your Pippo Java code.
+**Note:** The default file extension of a Freemarker template is `.ftl` and it may be omitted from your templates and your Pippo Java code.
 
 #### Integration
 
@@ -43,7 +43,7 @@ ${i18n("key.name", "arg1", "arg2")}
 
 ##### prettytime (relative time)
 
-pippo-freemarker supports automatically localized [prettytime][prettytime] out-of-the-box and it is very easy to use.
+The `pippo-freemarker` module supports automatically localized [prettytime][prettytime] out-of-the-box and it is very easy to use.
 
 Assuming you are providing a `java.util.Date` instance to prettyTime...
 
@@ -74,7 +74,7 @@ ${formatTime(now, "dd-MM-yyyy HH:mm")}
 
 ##### webjarsAt & publicAt
 
-pippo-freemarker supports context-aware url generation for your classpath resources using the `webjarsAt` and `publicAt` methods.
+The `pippo-freemarker` module supports context-aware url generation for your classpath resources using the `webjarsAt` and `publicAt` methods.
 
 ```html
 <!-- Stylesheets -->
@@ -107,8 +107,8 @@ public class MyApplication extends Application {
 
 ##### Error Templates
 
-pippo-freemarker will render special templates for routing problems and exceptions. You may override these templates 
-within your own application.
+The `pippo-freemarker` module  will render special templates for routing problems and exceptions. 
+You may override these templates within your own application (put a file with the same name, to same location, in your application classpath)
 
 - `templates/pippo/404notFound.ftl`
 - `templates/pippo/500interalError.ftl`
