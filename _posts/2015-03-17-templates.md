@@ -114,7 +114,7 @@ public class CrudApplication extends Application {
       }
       setTemplateEngine(templateEngine);
 
-      // ... add routes
+      // add routes
    }
 
 }
@@ -134,7 +134,7 @@ public class CrudApplication extends Application {
          throw new PippoRuntimeException(e);
       }
 
-      // ... add routes
+      // add routes
    }
 
 }
