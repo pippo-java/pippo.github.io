@@ -24,7 +24,7 @@ Pippo comes (out of the box) with some template engines:
 
 To use one of these template engines just add a dependency in your project:
 
-```
+```xml
 <dependency>
     <groupId>ro.pippo</groupId>
     <artifactId>pippo-freemarker</artifactId>
@@ -40,7 +40,7 @@ Bellow is a code snippet about how you can use a template as response to a reque
 
 ```java
 GET("/contact/{id}", routeContext -> {
-    int id = routeContext.getParameter("id").toInt(0);    
+    int id = routeContext.getParameter("id").toInt(0);
     String action = routeContext.getParameter("action").toString("new");
     
     Map<String, Object> model = new HashMap<>();
@@ -56,7 +56,7 @@ So, maybe the shortest version is:
 ```java
 GET("/contact/{id}", routeContext -> {
     routeContext.setLocal("id", routeContext.getParameter("id").toInt(0));
-    routeContext.setLocal("action", routeContext.getParameter("action").toString("new"));	
+    routeContext.setLocal("action", routeContext.getParameter("action").toString("new"));
     routeContext.render("contact");
 });
 ```
@@ -105,4 +105,3 @@ public class CrudApplication extends Application {
 ```
 
 For more information about how to implement a template engine please see _pippo-freemarker_ and _pippo-jade_ modules.
-
