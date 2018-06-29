@@ -75,6 +75,8 @@
                     lists = {},
                     headers = {};
 
+                var locationObj = document.location.href;
+
                 var navUl = document.querySelectorAll('#navigation ul')[0],
                     navLis = document.querySelectorAll('#navigation ul li');
 
@@ -88,6 +90,11 @@
                         sections.push(section);
                         headers[section] = li;
                         continue;
+                    }
+
+                    var link = li.childNodes[0];
+                    if (locationObj && link && locationObj.endsWith(link.getAttribute('href'))) {
+                        li.classList.add('active');
                     }
 
                     if (!lists[section]) {
