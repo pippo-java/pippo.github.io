@@ -140,6 +140,31 @@ public class CrudApplication extends Application {
 }
 ```
 
+In Pippo, each builtin template engine comes with special templates for routing problems and exceptions.
+See below the special templates that come by default with `pippo-freemarker`
+```bash
+$ tree src/main/resources/
+src/main/resources/
+└── templates
+    └── pippo
+        ├── 000base.ftl
+        ├── 400badRequest.ftl
+        ├── 401unauthorized.ftl
+        ├── 402paymentRequired.ftl
+        ├── 403forbidden.ftl
+        ├── 404notFound.ftl
+        ├── 405methodNotAllowed.ftl
+        ├── 409conflict.ftl
+        ├── 410gone.ftl
+        ├── 500internalError.ftl
+        ├── 501notImplemented.ftl
+        ├── 502overloaded.ftl
+        └── 503serviceUnavailable.ftl
+```
+You may override these templates within your own application (put a file with the same name, to same location, in your application classpath).
+If you feel that is too much to have a template for each error code, you can return the same template for all error code. In this situation you must override 
+`DefaultErrorHandler#getTemplateForStatusCode(int statusCode)`.
+
 By default, all template engines disable the cache in `dev` and `test` mode (to speed the development - change template and refresh the page in browser) 
 and enable the cache in `prod` mode (to improve the performance). 
 
