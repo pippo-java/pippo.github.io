@@ -20,6 +20,19 @@ public class HelloWorld {
 }
 ```
 
+Sure, the number of lines can decrease considerable if you use variant:
+
+```java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        Pippo.send("Hello World!");
+    }
+
+}
+```
+if you consider that in first variant they are too many lines of code. 
+
 You can run [HelloWorld]({{ site.demourl }}/pippo-demo-basic/src/main/java/ro/pippo/demo/basic/HelloWorld.java) from your IDE (or command line) as a normal (desktop) application.  
 The `default port` for the embedded web server is __8338__ so open your internet browser and type `http://localhost:8338` to 
 see the result.
