@@ -11,11 +11,13 @@ date: 2015-04-03 15:39:09
 
 1) Add the pippo-freemarker dependency to your pom.xml:
 
-    <dependency>
-        <groupId>ro.pippo</groupId>
-        <artifactId>pippo-freemarker</artifactId>
-        <version>${pippo.version}</version>
-    </dependency>
+```xml
+<dependency>
+    <groupId>ro.pippo</groupId>
+    <artifactId>pippo-freemarker</artifactId>
+    <version>${pippo.version}</version>
+</dependency>
+```
 
 2)  Start writing [Freemarker][freemarker] templates in the `templates` folder of your application.  
 
@@ -29,11 +31,15 @@ This engine includes some useful Pippo integration features and conveniences lik
 
 You can access your translation resources using the i18n method.
 
-    ${i18n("key.name")}
+```
+${i18n("key.name")}
+```
 
 You can supply arguments to your *MessageFormat* translation resources too.
 
-    ${i18n("key.name", "arg1", "arg2")}
+```
+${i18n("key.name", "arg1", "arg2")}
+```
 
 ##### prettytime (relative time)
 
@@ -41,24 +47,30 @@ pippo-freemarker supports automatically localized [prettytime][prettytime] out-o
 
 Assuming you are providing a `java.util.Date` instance to prettyTime...
 
-    ${prettyTime(myDate)}
+```
+${prettyTime(myDate)}
+```
 
 Will produce something like...
 
-    3 days ago
+```
+3 days ago
+```
 
 ##### formatTime
 
 You can also automatically format localized dates using standard Java date format patterns.
 
-    ${formatTime(now)}
-    ${formatTime(now, "short")}
-    ${formatTime(now, "medium")}
-    ${formatTime(now, "long")}
-    ${formatTime(now, "full")}
-    ${formatTime(now, "HH:mm")}
-    ${formatTime(now, "dd-MM-yyyy HH:mm")}
-    ${formatTime(now, "dd-MM-yyyy HH:mm")}
+```
+${formatTime(now)}
+${formatTime(now, "short")}
+${formatTime(now, "medium")}
+${formatTime(now, "long")}
+${formatTime(now, "full")}
+${formatTime(now, "HH:mm")}
+${formatTime(now, "dd-MM-yyyy HH:mm")}
+${formatTime(now, "dd-MM-yyyy HH:mm")}
+```    
 
 ##### webjarsAt & publicAt
 
@@ -81,12 +93,13 @@ pippo-freemarker supports context-aware url generation for your classpath resour
 ```java
 public class MyApplication extends Application {
 
-	@Override
+    @Override
     protected void onInit() {
-		// add routes for static content
+        // add routes for static content
         addPublicResourceRoute();
         addWebjarsResourceRoute();
-        ...
+        
+        // add other routes
     }
     
 }
