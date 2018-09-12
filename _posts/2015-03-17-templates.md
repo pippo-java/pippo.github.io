@@ -140,6 +140,36 @@ public class CrudApplication extends Application {
 }
 ```
 
+You can extend very easy the template engine and add/modify features.
+See below how you can add a `Trimou` custom template engine in your application.
+You can create the `MyTrimouTemplateEngine` class, like this:
+
+```java
+public class MyTrimouTemplateEngine extends TrimouTemplateEngine {
+    
+    @Override
+    protected void init(Application application, Configuration configuration) {
+        // your custom logic here
+    }
+    
+}
+```
+
+In your `Application`/`ControllerApplication` sub-class, you can do the following:
+
+```java
+public class PippoApplication extends ControllerApplication {
+    
+    @Override
+    protected void onInit() {
+        setTemplateEngine(new MyTrimouTemplateEngine());
+    }
+
+}
+```
+
+If you want how to add a new function `Filter`(MyUpperFiler) in `PebbleTemplateEngine` please see [this](https://github.com/pippo-java/pippo/pull/213). 
+ 
 In Pippo, each builtin template engine comes with special templates for routing problems and exceptions.
 See below the special templates that come by default with `pippo-freemarker`
 ```bash
