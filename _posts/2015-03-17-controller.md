@@ -148,6 +148,101 @@ If you use Maven, your `pom.xml` must contains above lines:
 
 ```
 
+#### Extractors
+
+With few words a method parameter extractor create a method parameter value from the `RouteContext` and the `MethodParameter` (an useful wrapper over Parameter class from Java).
+
+For example, see the controller route defined with method:
+
+```java
+void uriFor(@Param int id, @Param String action, @Header String host, @Session String user);
+```
+
+When a request comes for the above route, Pippo uses extractors to extract values for the method's parameters: `id`, `action`, `host` and `user`.
+
+Pippo comes with some builtin extractors that extract values from multiple locations:
+
+- `Param` extracts value from the request parameter (similar with `request.getParamater()`)
+- `Header` extracts value from the request header
+- `Session` extracts value from a session's attribute
+- `Body` extract value from the request body cia a Content Type Engine (e.g. JSON, XML)
+
+They are also other builtin extractors that are not presented in this post.
+The beauty of Pippo here is that you can define any extractor you want/need with no effort.
+
+All you must to do is to implement `MethodParameterExtractor` interface:
+
+```java
+public interface MethodParameterExtractor {
+
+    /**
+     * Returns true if this extractor is applicable to the given {@link MethodParameter}.
+     */
+    boolean isApplicable(MethodParameter parameter);
+
+    /**
+     * Extract a value from a {@link MethodParameter} for a specified {@link RouteContext}.
+     */
+    Object extract(MethodParameter parameter, RouteContext routeContext);
+
+}
+```
+
+Example, `BeanExtractor` that create a bean from the request parameters:
+
+```java
+@MetaInfServices
+public class BeanExtractor implements MethodParameterExtractor {
+
+    @Override
+    public boolean isApplicable(MethodParameter parameter) {
+        return parameter.isAnnotationPresent(Bean.class);
+    }
+
+    @Override
+    public Object extract(MethodParameter parameter, RouteContext routeContext) {
+        Class<?> parameterType = parameter.getParameterType();
+
+        return routeContext.createEntityFromParameters(parameterType);
+    }
+
+}
+```
+
+After you create the new extractor you should add it to Pippo:
+
+- automatically (annotate your extractor with `@MetaInfServices`)
+- manually (via `ControllerApplication.addExtractors(extractor)` method)
+
+You are not forced to create an Extractor using only annotation (it's not annotation driven).
+
+Below, I present you a new extractor, `FileItemExtractor` that does't use annotation (it looks after parameter type).
+
+```java
+@MetaInfServices
+public class FileItemExtractor implements MethodParameterExtractor {
+
+    @Override
+    public boolean isApplicable(MethodParameter parameter) {
+        return FileItem.class == parameter.getParameterType();
+    }
+
+    @Override
+    public Object extract(MethodParameter parameter, RouteContext routeContext) {
+        String name = parameter.getParameterName();
+
+        return routeContext.getRequest().getFile(name);
+    }
+
+}
+```
+
+The signature for a possible controller's route that uses a FileItemExtractor can might be:
+
+```java
+void upload(FileItem file);
+```
+
 #### Parameter name
 
 The Controller module may depend on the `-parameters` flag of the Java 8 javac compiler. This flag embeds the names of method parameters in the generated .class files.
