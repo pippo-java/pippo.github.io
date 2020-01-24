@@ -18,6 +18,9 @@ Also, Pippo comes with a very small footprint that makes it excellent for embedd
 The framework is based on __Java Servlet 3.1__ and requires __Java 8__.
 
 <br>
+
+If you like Pippo, please consider starring us on GitHub:
+<a class="github-button" href="https://github.com/pippo-java/pippo" data-size="large" data-show-count="true" aria-label="Star Pippo on GitHub">Star</a>
    
 **Talk is cheap. Show me the code.**
 
